@@ -46,8 +46,59 @@ body {
 
 <div class="section">
 <h2>Skill</h2>
-<p>C / Python / Embedded System / Firmware Analysis / Protocol Design</p>
+<p>C / Python</p>
+<p>Embedded / Firmware / Protocol</p>
+
 </div>
+
+<!-- 🔥 오른쪽 영역 -->
+<div class="right">
+
+<h2>📌 About Me</h2>
+
+<!-- 🔎 Club -->
+<h3>🔎 Club</h3>
+
+<p><b>2025.06 ~ 2025.08 | Movisec (네트워크보안동아리)</b></p>
+<ul>
+<li>Wireshark를 활용한 네트워크 패킷 분석 수행</li>
+<li>DDoS 공격 상황에서 이상 트래픽 패턴 식별</li>
+<li>재전송 공격 환경에서 패킷 흐름 및 통신 흐름 분석</li>
+</ul>
+
+<p><b>2024.03 ~ 2025.02 | PEPSI (부채널 분석 동아리)</b></p>
+<ul>
+<li>AES·ARIA 암호 알고리즘 대상 부채널 공격 실습 및 경진대회 문제 풀이 수행</li>
+<li>ChipWhisperer 기반 전력 파형 분석과 DPA/CPA 공격을 C언어로 구현하여 비밀 키 복구 성공</li>
+</ul>
+
+<p><b>2023.09 ~ 2024.12 | CO2 (최적화 동아리)</b></p>
+<ul>
+<li>LEA, AES, SHA 등 암호 알고리즘 구현</li>
+<li>연산 구조 및 메모리 접근 기반 최적화 수행</li>
+</ul>
+
+---
+
+<!-- 💻 Work Experience -->
+<h3>💻 Work Experience</h3>
+
+<p><b>2024.06 ~ 2024.08 | NSHC (현장실습 인턴)</b></p>
+<ul>
+<li>1. 부서 : LLVM 연구소</li>
+<li>2. 업무 내용 : SMT solver 기반 코드 동등성 검증 수행</li>
+<li>컴파일러 난독화 전후 프로그램 동작 동일성 확인</li>
+</ul>
+
+---
+
+<!-- 🧾 Certificate -->
+<h3>🧾 Certificate</h3>
+<ul>
+<li>2024.02 TOEIC 825</li>
+<li>2025.02 OPIC IH</li>
+<li>2026.03 SQLD</li>
+</ul>
 
 <div class="section">
 <h2>Projects</h2>
@@ -75,7 +126,10 @@ body {
 <div class="project">
 <h3>Firmware Analysis</h3>
 
-<img src="images/firmware.png" width="100%">
+<div style="display:flex; justify-content:center; gap:20px;">
+  <img src="images/homecame.png" width="300">
+  <img src="images/firmware.png" width="300">
+</div>
 
 <p>
 임베디드 홈캠 펌웨어를 분석하고 시스템 구조와 실행 흐름을 파악한 프로젝트
@@ -94,21 +148,62 @@ body {
 <div class="project">
 <h3>Laser Communication</h3>
 
-<img src="images/laser_communication.png" width="100%">
-
-<p>
-광통신 시스템을 구현하고 커스텀 프로토콜을 설계한 프로젝트
-</p>
-
-<ul>
-<li>개인 프로젝트</li>
-<li>ACK/NACK 기반 재전송 구조</li>
-<li>DMA 기반 타이밍 제어</li>
-</ul>
-
-<p>🔗 <a href="https://github.com/tjdbs57/laser-communication" target="_blank">GitHub</a></p>
+<div style="display:flex; justify-content:center; gap:20px;">
+  <img src="images/laser_comm_total.png" width="300">
+  <img src="images/laser_communication.png" width="300">
 </div>
 
+ <p>
+    라즈베리파이 기반 광통신 시스템을 구현하고  
+    커스텀 통신 프로토콜을 설계한 프로젝트
+  </p>
+
+  <!-- 🔥 토글 -->
+  <details>
+    <summary style="cursor:pointer; font-weight:bold;">
+      🔍 상세 보기
+    </summary>
+
+    <br>
+
+    <h4>요약</h4>
+    <ul>
+      <li>광통신 시스템 구현 및 프로토콜 설계</li>
+    </ul>
+
+    <h4>역할</h4>
+    <ul>
+      <li>개인 프로젝트</li>
+      <li>송신/수신 프로그램 구현</li>
+    </ul>
+
+    <h4>성과</h4>
+    <ul>
+      <li>데이터 오류 문제 해결</li>
+      <li>재전송 구조 구현</li>
+    </ul>
+
+    <h4>시기</h4>
+    <ul>
+      <li>2025.09 ~ 2025.12</li>
+    </ul>
+
+    <h4>Code</h4>
+    <a href="https://github.com/tjdbs57/laser-communication" target="_blank">
+      GitHub
+    </a>
+
+    <h4>Used</h4>
+    <p><b>`C` `Raspberry Pi` `Linux` `pigpio`</b></p>
+
+    <h4>세부 내용</h4>
+    <ul>
+      <li>STX/ETX 기반 패킷 설계</li>
+      <li>Checksum 오류 검출</li>
+      <li>ACK/NACK 재전송</li>
+    </ul>
+
+  </details>
 </div>
 
 </body>
