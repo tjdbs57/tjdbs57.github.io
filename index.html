@@ -51,9 +51,7 @@ body {
 
 </div>
 
-<!-- 🔥 오른쪽 영역 -->
-<div class="right">
-
+<div class="section">
 <h2>📌 About Me</h2>
 
 <!-- 🔎 Club -->
@@ -99,57 +97,18 @@ body {
 <li>2025.02 OPIC IH</li>
 <li>2026.03 SQLD</li>
 </ul>
+</div>
 
 <div class="section">
 <h2>Projects</h2>
 
-<!-- 🔥 Big Integer -->
 <div class="project">
-<h3>Big Integer Library</h3>
+  <!-- 🔥 Laser -->
 
-<img src="images/bigint.png" width="100%">
-
-<p>
-큰 정수 연산 라이브러리를 구현하고 Karatsuba 알고리즘을 적용하여 성능을 개선한 프로젝트
-</p>
-
-<ul>
-<li>팀 프로젝트 (3명, 팀장)</li>
-<li>곱셈/나눗셈/거듭제곱 구현</li>
-<li>Karatsuba 적용 및 성능 측정</li>
-</ul>
-
-<p>🔗 <a href="https://github.com/tjdbs57/2024_fall_BigInt.git" target="_blank">GitHub</a></p>
-</div>
-
-<!-- 🔥 Firmware -->
-<div class="project">
-<h3>Firmware Analysis</h3>
-
-<div style="display:flex; justify-content:center; gap:20px;">
-  <img src="images/homecame.png" width="300">
-  <img src="images/firmware.png" width="300">
-</div>
-
-<p>
-임베디드 홈캠 펌웨어를 분석하고 시스템 구조와 실행 흐름을 파악한 프로젝트
-</p>
-
-<ul>
-<li>8명 팀 프로젝트</li>
-<li>binwalk 기반 파일 시스템 분석</li>
-<li>QEMU 환경에서 부팅 성공</li>
-</ul>
-
-<p>🔗<a href="https://github.com/yeojin-206/HomeCam-Firmware-Analysis.git" target="_blank">GitHub</a></p>
-</div>
-
-<!-- 🔥 Laser -->
-<div class="project">
 <h3>Laser Communication</h3>
 
 <div style="display:flex; justify-content:center; gap:20px;">
-  <img src="images/laser_comm_total.png" width="300">
+  <img src="images/laser_comm_total.jpg" width="300">
   <img src="images/laser_communication.png" width="300">
 </div>
 
@@ -194,7 +153,12 @@ body {
     </a>
 
     <h4>Used</h4>
-    <p><b>`C` `Raspberry Pi` `Linux` `pigpio`</b></p>
+    <p>
+      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">C</span>
+      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">Raspberry Pi</span>
+      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">Linux</span>
+      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">pigpio</span>
+    </p>
 
     <h4>세부 내용</h4>
     <ul>
@@ -205,6 +169,144 @@ body {
 
   </details>
 </div>
+
+<!-- 🔥 Firmware -->
+<div class="project">
+<h3>Firmware Analysis</h3>
+
+<div style="display:flex; justify-content:center; gap:20px;">
+  <img src="images/homecame.png" width="300">
+  <img src="images/firmware.png" width="300">
+</div>
+
+<p>
+    임베디드 홈캠 펌웨어를 분석하고 시스템 구조와 실행 흐름을 파악한 프로젝트
+  </p>
+
+  <details>
+    <summary style="cursor:pointer; font-weight:bold;">
+      🔍 상세 보기
+    </summary>
+
+    <br>
+
+    <h4>요약</h4>
+    <ul>
+      <li>펌웨어 추출 및 정적/동적 분석을 통한 시스템 구조 분석</li>
+    </ul>
+
+    <h4>역할</h4>
+    <ul>
+      <li>총 8명 팀 프로젝트</li>
+      <li>파일 시스템 분석 및 QEMU 환경 구축</li>
+      <li>실행 파일 분석</li>
+    </ul>
+
+    <h4>성과</h4>
+    <ul>
+      <li>Bootloader → Kernel → RootFS 구조 분석</li>
+      <li>QEMU 기반 부팅 성공</li>
+      <li>프로세스 동작 흐름 파악</li>
+    </ul>
+
+    <h4>시기</h4>
+    <ul>
+      <li>2025.03 ~ 2025.07</li>
+    </ul>
+
+    <h4>Code / Report</h4>
+    <a href="https://github.com/yeojin-206/HomeCam-Firmware-Analysis.git" target="_blank">
+      GitHub
+    </a>
+
+    <h4>Used</h4>
+    <p>
+      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">Linux</span>
+      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">QEMU</span>
+      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">Binwalk</span>
+      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">Ghidra</span>
+      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">C</span>
+      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">flashrom</span>
+    </p>
+    <h4>세부 내용</h4>
+    <ul>
+      <li>flash 메모리에서 펌웨어 추출</li>
+      <li>binwalk 및 FMK 기반 분석</li>
+      <li>squashfs rootfs 재구성</li>
+      <li>QEMU MIPS 부팅</li>
+      <li>Ghidra 정적 분석</li>
+      <li>LD_PRELOAD 기반 후킹</li>
+    </ul>
+
+  </details>
+</div>
+
+<!-- 🔥 Big Integer -->
+<div class="project">
+<h3>Big Integer Library</h3>
+
+<img src="images/bigint.png" width="100%">
+
+<p>
+    큰 정수 연산 라이브러리를 구현하고 Diffie-Hellman 키 교환 시스템 구현한 프로젝트
+  </p>
+
+  <details>
+    <summary style="cursor:pointer; font-weight:bold;">
+      🔍 상세 보기
+    </summary>
+
+    <br>
+
+    <h4>요약</h4>
+    <ul>
+      <li>C 기반 큰 정수 연산 라이브러리 구현 및 성능 최적화</li>
+    </ul>
+
+    <h4>역할</h4>
+    <ul>
+      <li>총 3명 팀 프로젝트 (팀장)</li>
+      <li>연산 구현 및 구조 설계</li>
+      <li>Karatsuba 적용 및 성능 측정</li>
+    </ul>
+
+    <h4>성과</h4>
+    <ul>
+      <li>곱셈 성능 개선 확인</li>
+      <li>입력 크기별 성능 분석 수행</li>
+      <li>연산 정확성 검증</li>
+    </ul>
+
+    <h4>시기</h4>
+    <ul>
+      <li>2024.09 ~ 2024.11</li>
+    </ul>
+
+    <h4>Code</h4>
+    <a href="https://github.com/tjdbs57/2024_fall_BigInt.git" target="_blank">
+      GitHub
+    </a>
+
+   <h4>Used</h4>
+    <p>
+      <span style="background:#eee; padding:5px 10px; border-radius:8px;">C</span>
+      <span style="background:#eee; padding:5px 10px; border-radius:8px;">Valgrind</span>
+      <span style="background:#eee; padding:5px 10px; border-radius:8px;">Python</span>
+      <span style="background:#eee; padding:5px 10px; border-radius:8px;">GCC</span>
+    </p>
+
+    <h4>세부 내용</h4>
+    <ul>
+      <li>Arbitrary Precision 구조 설계</li>
+      <li>사칙연산 구현</li>
+      <li>Karatsuba 곱셈 구현</li>
+      <li>rdtsc 기반 성능 측정</li>
+      <li>모듈화 구조 설계</li>
+    </ul>
+
+  </details>
+</div>
+
 
 </body>
 </html>
