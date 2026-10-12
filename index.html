@@ -1,439 +1,325 @@
-<!doctype html>
-<html lang="ko">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>정서윤 포트폴리오</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Seoyun Portfolio</title>
+
 <style>
-:root{
-  --ink:#1a1d23; --ink2:#454b57; --ink3:#8a909c;
-  --line:#dcdfe5; --bg:#e9ebef; --paper:#fff;
-  --accent:#173f87; --accent2:#2a5cc4; --soft:#f3f6fb;
-  --todo:#fff2a0;
+body {
+  font-family: Arial;
+  max-width: 900px;
+  margin: auto;
+  background-color: #f9f9f9;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-size:10.2pt;line-height:1.7;-webkit-font-smoothing:antialiased;word-break:keep-all}
-b,strong{font-weight:700;color:var(--ink)}
 
-/* A4 portrait sheet */
-.page{width:210mm;height:297mm;margin:24px auto;background:var(--paper);box-shadow:0 2px 14px rgba(0,0,0,.08);position:relative;overflow:hidden;padding:20mm 19mm 18mm;display:flex;flex-direction:column}
-.foot{position:absolute;left:19mm;right:19mm;bottom:9mm;display:flex;justify-content:space-between;font-size:8pt;color:var(--ink3);border-top:.5px solid var(--line);padding-top:4px}
-
-.todo{background:var(--todo);padding:0 2px;color:#6e5200}
-.slot{border:1px dashed #b9bfca;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--ink3);font-size:8.6pt;padding:8px;background:#fbfbfc}
-.slot b{display:block;color:var(--ink2);font-size:9pt}
-.banner{max-width:210mm;margin:16px auto 0;background:#fff8d6;border:1px solid #f0d97a;border-radius:6px;padding:10px 14px;font-size:12px}
-
-/* section header — report style */
-.kicker{display:flex;align-items:baseline;gap:8px;font-size:8.5pt;color:var(--ink3);padding-bottom:5px;border-bottom:2px solid var(--ink)}
-.kicker .badge{font-weight:700;color:var(--accent)}
-.kicker .badge::after{content:"·";margin-left:8px;color:var(--ink3);font-weight:400}
-.kicker .badge.sub{color:var(--ink2)}
-h1.t{font-size:15.5pt;font-weight:700;line-height:1.45;letter-spacing:-.02em;margin:12px 0 6px}
-h1.t br{display:none}
-h1.t em{font-style:normal;color:var(--accent)}
-.lead{font-size:10pt;color:var(--ink2)}
-.facts{display:grid;grid-template-columns:auto 1fr;column-gap:14px;row-gap:1px;font-size:9pt;margin-top:10px;padding:6px 0;border-top:.5px solid var(--line);border-bottom:.5px solid var(--line)}
-.facts span{display:contents;color:var(--ink3)}
-.facts span b{color:var(--ink);font-weight:400}
-
-.cols{display:flex;flex-direction:column;gap:12px;flex:1;margin-top:14px;min-height:0}
-.col{display:flex;flex-direction:column;gap:11px;min-height:0}
-.col:last-child{flex:1}
-
-h3{font-size:10.5pt;font-weight:700;color:var(--ink);margin-bottom:2px;display:flex;align-items:baseline;gap:6px}
-h3::before{content:"";width:3px;height:10px;background:var(--accent);align-self:center}
-h3 small{font-weight:400;color:var(--ink3);font-size:8.5pt}
-p+p{margin-top:3px}
-.txt{color:var(--ink2)}
-
-.steps{counter-reset:s;display:flex;flex-direction:column;gap:8px}
-.step{display:grid;grid-template-columns:20px 1fr;gap:8px}
-.step::before{counter-increment:s;content:counter(s) ".";font-weight:700;color:var(--accent);font-size:10.5pt}
-.step h4{font-size:10pt;font-weight:700}
-.step p{color:var(--ink2);font-size:9.6pt}
-.step .arrow{color:var(--accent);font-weight:700}
-
-.nums{display:flex;border-top:.5px solid var(--line);border-bottom:.5px solid var(--line)}
-.nums div{flex:1;padding:6px 10px;border-left:.5px solid var(--line)}
-.nums div:first-child{border-left:none;padding-left:0}
-.nums .v{font-size:13.5pt;font-weight:700;color:var(--accent);line-height:1.3}
-.nums .l{font-size:8.3pt;color:var(--ink2)}
-
-.quote{padding-left:11px;border-left:2px solid var(--line);font-size:9.6pt;color:var(--ink2);font-style:italic}
-.quote small{display:block;color:var(--ink3);font-size:8.3pt;font-style:normal}
-.note{background:var(--soft);padding:8px 12px;border-left:2px solid var(--accent)}
-.note h3::before{display:none}
-.note p{color:var(--ink2);font-size:9.6pt}
-.tools{font-size:8.8pt;color:var(--ink2);border-top:.5px solid var(--line);padding-top:6px}
-.tools b{color:var(--ink);margin-right:6px}
-.fig{padding:4px 0}
-.fig svg{max-height:62mm}
-.fig .cap{font-size:8.3pt;color:var(--ink3);margin-top:3px;text-align:center}
-
-/* cover — resume style */
-.cover h1{font-size:9pt;font-weight:500;color:var(--ink3);letter-spacing:.04em}
-.cover .name{font-size:24pt;font-weight:700;letter-spacing:-.02em;line-height:1.3;margin:2px 0 10px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
-.cover .intro{font-size:10pt;color:var(--ink2)}
-.cover h2.sec{font-size:10.5pt;font-weight:700;margin:20px 0 6px;padding-bottom:4px;border-bottom:.5px solid var(--ink)}
-.exp{display:flex;flex-direction:column}
-.exp a{display:grid;grid-template-columns:24mm 1fr;column-gap:12px;text-decoration:none;color:inherit;padding:8px 0;border-bottom:.5px solid var(--line)}
-.exp .lbl{font-size:8.5pt;font-weight:700;color:var(--accent);grid-row:1/4}
-.exp a.sub .lbl{color:var(--ink3)}
-.exp h2{font-size:10.5pt;font-weight:700;line-height:1.45}
-.exp h2 br{display:none}
-.exp p{font-size:9.4pt;color:var(--ink2)}
-.exp .pg{font-size:8.3pt;color:var(--ink3)}
-.profile{display:flex;flex-direction:column}
-.profile h3{font-size:10.5pt;margin:18px 0 6px;padding-bottom:4px;border-bottom:.5px solid var(--ink);display:block}
-.profile h3::before{display:none}
-.row{display:grid;grid-template-columns:30mm 1fr;gap:12px;font-size:9.4pt;color:var(--ink2);padding:2px 0}
-.row:not(:has(.d)){grid-template-columns:1fr}
-.row .d{color:var(--ink3)}
-
-/* closing page */
-.thanks{justify-content:flex-start}
-.thanks h1{font-size:20pt;font-weight:700;margin-top:60mm;padding-bottom:10px;border-bottom:2px solid var(--ink)}
-.thanks p{color:var(--ink2);font-size:10.5pt;margin-top:12px;line-height:1.85}
-.thanks .c{margin-top:22px;font-size:9.6pt;line-height:2;color:var(--ink2)}
-.thanks .c b{display:inline-block;width:22mm;color:var(--ink3);font-weight:400}
-
-/* cover v3 */
-.cv-top{display:flex;justify-content:space-between;font-size:8.5pt;font-weight:700;letter-spacing:.08em;color:var(--ink3);padding-bottom:6px;border-bottom:.5px solid var(--line)}
-.cv-job{font-size:12pt;font-weight:700;color:var(--accent);margin-top:22mm}
-.cv-name{font-size:30pt;font-weight:700;letter-spacing:-.02em;line-height:1.25}
-.cv-tag{font-size:10.5pt;color:var(--ink2);margin-top:4px;padding-bottom:12px;border-bottom:2px solid var(--ink)}
-.cv-kw{display:grid;grid-template-columns:repeat(4,1fr);margin-top:12px;border-bottom:.5px solid var(--line)}
-.cv-kw div{padding:4px 10px 10px;border-left:.5px solid var(--line)}
-.cv-kw div:first-child{border-left:none;padding-left:0}
-.cv-kw b{display:block;font-size:10pt;color:var(--accent)}
-.cv-kw span{font-size:8.3pt;color:var(--ink3)}
-.stack .row{grid-template-columns:30mm 1fr}
-.cv-contact{margin-top:auto;display:flex;gap:28px;font-size:9.4pt;color:var(--ink2);padding-top:8px;border-top:.5px solid var(--line)}
-.cv-contact b{color:var(--ink3);font-weight:400;margin-right:4px}
-.cover h2.sec{margin-top:16px}
-.exp a{padding:6px 0}
-
-/* supporting page is a single sheet — keep it compact */
-#p3 .fig svg{max-height:40mm}
-#p3 .col{gap:9px}
-#p3 .cols{gap:9px}
-#p3 .slot{min-height:64px!important}
-
-@media screen and (max-width:820px){
-  .page{width:auto;height:auto;margin:12px;padding:22px 16px 40px}
-  .nums{flex-direction:column}.nums div{border-left:none;padding-left:0}
-  .exp a,.row,.stack .row{grid-template-columns:1fr}
-  .cv-kw{grid-template-columns:1fr 1fr}
-  .cv-job{margin-top:8px}
-  .banner{margin:12px}
+.section {
+  background: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
 }
-@page{size:A4 portrait;margin:0}
-@media print{
-  body{background:#fff}
-  .page{margin:0;box-shadow:none;page-break-after:always}
-  .banner{display:none}
-  .todo{background:none;color:inherit}
+
+.project {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 10px;
 }
 </style>
+
 </head>
+
 <body>
 
-<div class="banner">✏️ <b>초안</b> — <span class="todo">노란 표시</span>는 본인이 확인·수정할 사실과 수치, 점선 박스는 실제 결과 캡처 자리입니다. 인쇄 시 노란 표시는 사라집니다.</div>
+<h1>💻 Seoyun Portfolio</h1>
 
-<!-- ===================== 1. COVER ===================== -->
-<section class="page cover">
-  <div class="cv-top"><span>2026 PORTFOLIO</span><span>현대오토에버 지원</span></div>
-  <div class="cv-job">차량보안진단 신입 포트폴리오</div>
-  <div class="cv-name">정서윤</div>
-  <p class="cv-tag">한 걸음 더 깊이 생각하는 차량보안진단, 정서윤입니다.</p>
+<div style="text-align:center; margin-top:20px;">
+  <img src="images/profile.jpg" width="150" style="border-radius:50%;">
+</div>
 
-  <div class="cv-kw">
-    <div><b>펌웨어 추출·분석</b><span>SPI 덤프 · 부팅 흐름 복원</span></div>
-    <div><b>에뮬레이션 동적 분석</b><span>QEMU MIPS 환경 구축</span></div>
-    <div><b>부채널 공격 구현</b><span>CPA/DPA 키 복구 (C)</span></div>
-    <div><b>통신 프로토콜 분석</b><span>프레임 설계 · Replay 분석</span></div>
-  </div>
 
-  <h2 class="sec">기술 스택</h2>
-  <div class="stack">
-    <div class="row"><span class="d">Language</span><span>C, C++, Python, Shell Script</span></div>
-    <div class="row"><span class="d">Firmware · RE</span><span>flashrom, binwalk, Ghidra, QEMU</span></div>
-    <div class="row"><span class="d">Hardware</span><span>ChipWhisperer, SPI, Raspberry Pi (pigpio)</span></div>
-    <div class="row"><span class="d">Network · Env</span><span>Wireshark, Linux (Ubuntu), Git</span></div>
-  </div>
+<div class="section">
+<h2>🎓 Education</h2>
+<p><b>2022.03</b> 국민대학교 정보보안암호수학과 입학</p>
+<p><b>2026.08</b> 졸업 예정</p>
+</div>
 
-  <h2 class="sec">프로젝트 경험</h2>
-  <div class="exp">
-    <a href="#p1"><div class="lbl">핵심 01</div>
-      <h2>홈캠 펌웨어 추출 및 QEMU 동적 분석 환경 구축</h2>
-      <p>SPI 플래시 덤프부터 에뮬레이션 부팅까지, 실기기 없이 반복 분석 가능한 환경을 만든 경험</p>
-      <div class="pg">2025.05–08 · 화이트햇스쿨 8인 팀 · p.2–3</div></a>
-    <a href="#p2"><div class="lbl">핵심 02</div>
-      <h2>전력 부채널 분석으로 AES·ARIA 비밀키 복구</h2>
-      <p>ChipWhisperer 파형 수집과 C로 직접 구현한 CPA로 하드웨어 구현의 취약점을 증명한 경험</p>
-      <div class="pg">2024.03–2025.02 · PEPSI 동아리 · p.4–5</div></a>
-    <a href="#p3" class="sub"><div class="lbl">보조</div>
-      <h2>광통신 커스텀 프로토콜 설계</h2>
-      <p>프레임·오류 검출·재전송을 직접 설계하고, 재전송 공격 분석과 엮어 프로토콜을 공격자 시선으로 본 경험</p>
-      <div class="pg">2025.09–12 · 개인 · p.6</div></a>
-  </div>
 
-  <h2 class="sec">학력 · 경력 · 자격</h2>
-  <div class="stack">
-    <div class="row"><span class="d">2022 – 2027.02</span><span>국민대학교 정보보안암호수학과 (졸업 예정) <span class="todo">학점</span></span></div>
-    <div class="row"><span class="d">2025.05 – 08</span><span>화이트햇스쿨 3기 수료</span></div>
-    <div class="row"><span class="d">2024.06 – 08</span><span>NSHC LLVM 연구소 현장실습 — SMT solver로 난독화 전후 코드 동등성 검증</span></div>
-    <div class="row"><span class="d">기타 활동</span><span>Movisec(네트워크 보안) · BigInt·DH 구현(팀장) · CO2(암호 최적화)</span></div>
-    <div class="row"><span class="d">자격 · 어학</span><span>SQLD (2026.03) · OPIc IH · TOEIC 825</span></div>
-  </div>
+<div class="section">
+<h2>📌 About Me</h2>
 
-  <div class="cv-contact"><span><b>Email</b> <span class="todo">이메일</span></span><span><b>GitHub</b> github.com/tjdbs57</span></div>
-  <div class="foot"><span>정서윤 · 차량보안진단 신입 포트폴리오 2026</span><span>01</span></div>
-</section>
+<!-- 🔎 Club -->
+<h3>🔎 Club</h3>
 
-<!-- ===================== 2. FIRMWARE — WHAT / WHY ===================== -->
-<section class="page" id="p1">
-  <div class="kicker"><span class="badge">핵심 경험 01</span>FIRMWARE ANALYSIS</div>
-  <h1 class="t">칩에서 꺼낸 펌웨어를 <em>에뮬레이터 위에서 다시 부팅</em>시켜,<br>실기기 없이도 반복해서 분석할 수 있게 만들었습니다</h1>
-  <p class="lead">펌웨어가 공개되지 않은 저가 홈캠을 대상으로, 하드웨어에서 펌웨어를 추출해 구조를 복원하고 QEMU 기반 동적 분석 환경까지 구축했습니다.</p>
-  <div class="facts"><span>기간<b>2025.05 – 2025.08</b></span><span>구성<b>화이트햇스쿨 3기 8인 팀</b></span><span>담당<b>파일시스템 복원 · QEMU 환경 구축 · 실행파일 분석</b></span></div>
+<p><b>2025.06 ~ 2025.08 | Movisec (네트워크보안동아리)</b></p>
+<ul>
+<li>Wireshark를 활용한 네트워크 패킷 분석 수행</li>
+<li>DDoS 공격 상황에서 이상 트래픽 패턴 식별</li>
+<li>재전송 공격 환경에서 패킷 흐름 및 통신 흐름 분석</li>
+</ul>
 
-  <div class="cols c-55">
-    <div class="col">
-      <div><h3>왜 어려웠나</h3>
-        <p class="txt">제조사가 펌웨어를 배포하지 않아 <b>보드의 SPI 플래시에서 직접 덤프</b>해야 했습니다.
-        디버깅 포트도 막혀 있어서 기기 한 대로는 같은 실험을 반복하기 어려웠고, 잘못 건드리면 기기를 못 쓰게 될 위험도 있었습니다.
-        자료도 추출·정적 분석·동적 분석이 따로 흩어져 있어서 처음부터 끝까지 이어지는 흐름을 직접 만들어야 했습니다.</p></div>
-      <div><h3>내가 맡은 일</h3>
-        <p class="txt">팀이 덤프한 이미지를 받아 <b>추출 이후 단계 전체</b>를 맡았습니다.
-        이미지를 Bootloader·Kernel·RootFS로 나누고, squashfs 파일시스템을 복원한 뒤,
-        QEMU에서 부팅되도록 환경을 구성하고 메인 바이너리의 실행 흐름을 분석했습니다. <span class="todo">기여도 xx%</span></p></div>
-      <div class="nums">
-        <div><div class="v">QEMU 부팅</div><div class="l">추출한 RootFS로 MIPS 에뮬레이션 성공</div></div>
-        <div><div class="v"><span class="todo">N개</span></div><div class="l">후킹으로 동작을 확인한 함수</div></div>
-        <div><div class="v">4단계</div><div class="l">재현 가능한 분석 가이드로 문서화</div></div>
-      </div>
-      <div class="quote"><span class="todo">“멘토·PL에게 받은 피드백 한 문장을 그대로 인용”</span><small><span class="todo">— 멘토 OOO, 최종 발표</span></small></div>
-    </div>
+<p><b>2024.03 ~ 2025.02 | PEPSI (부채널 분석 동아리)</b></p>
+<ul>
+<li>AES·ARIA 암호 알고리즘 대상 부채널 공격 실습 및 경진대회 문제 풀이 수행</li>
+<li>ChipWhisperer 기반 전력 파형 분석과 DPA/CPA 공격을 C언어로 구현하여 비밀 키 복구 성공</li>
+</ul>
 
-    <div class="col">
-      <div class="fig">
-        <svg viewBox="0 0 520 150" width="100%" role="img" aria-label="복원한 부팅 흐름">
-          <defs><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#8b93a5"/></marker></defs>
-          <g font-family="Noto Sans KR" font-size="12" text-anchor="middle">
-            <rect x="4" y="16" width="110" height="52" rx="7" fill="#eef3fd" stroke="#2563eb"/><text x="59" y="38" font-weight="700" fill="#0d3b8a">SPI Flash</text><text x="59" y="56" font-size="10" fill="#465065">flashrom 덤프</text>
-            <rect x="140" y="16" width="110" height="52" rx="7" fill="#eef3fd" stroke="#2563eb"/><text x="195" y="38" font-weight="700" fill="#0d3b8a">Bootloader</text><text x="195" y="56" font-size="10" fill="#465065">부팅 인자 확인</text>
-            <rect x="276" y="16" width="110" height="52" rx="7" fill="#eef3fd" stroke="#2563eb"/><text x="331" y="38" font-weight="700" fill="#0d3b8a">Kernel</text><text x="331" y="56" font-size="10" fill="#465065">MIPS Linux</text>
-            <rect x="412" y="16" width="104" height="52" rx="7" fill="#141a26"/><text x="464" y="38" font-weight="700" fill="#fff">RootFS</text><text x="464" y="56" font-size="10" fill="#c3cbdc">squashfs</text>
-            <line x1="114" y1="42" x2="138" y2="42" stroke="#8b93a5" stroke-width="2" marker-end="url(#a1)"/>
-            <line x1="250" y1="42" x2="274" y2="42" stroke="#8b93a5" stroke-width="2" marker-end="url(#a1)"/>
-            <line x1="386" y1="42" x2="410" y2="42" stroke="#8b93a5" stroke-width="2" marker-end="url(#a1)"/>
-            <path d="M464 68 V96 H400" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="4 3"/>
-            <rect x="140" y="92" width="260" height="44" rx="7" fill="#fff" stroke="#2563eb" stroke-dasharray="4 3"/>
-            <text x="270" y="111" font-weight="700" fill="#0d3b8a">init 스크립트 → 메인 바이너리</text>
-            <text x="270" y="127" font-size="10" fill="#465065">Ghidra로 실행 흐름 추적</text>
-          </g>
-        </svg>
-        <div class="cap">정적 분석으로 복원한 홈캠 부팅 흐름</div>
-      </div>
-      <div class="slot" style="flex:1;min-height:110px"><div><b>QEMU에서 홈캠 RootFS가 부팅된 터미널 화면</b>부팅 로그 마지막 부분 + 쉘 프롬프트가 보이게 캡처</div></div>
-    </div>
-  </div>
-  <div class="foot"><span>정서윤 · 차량보안진단 신입 포트폴리오 2026</span><span>02</span></div>
-</section>
+<p><b>2023.09 ~ 2024.12 | CO2 (최적화 동아리)</b></p>
+<ul>
+<li>LEA, AES, SHA 등 암호 알고리즘 구현</li>
+<li>연산 구조 및 메모리 접근 기반 최적화 수행</li>
+</ul>
 
-<!-- ===================== 3. FIRMWARE — HOW ===================== -->
-<section class="page">
-  <div class="kicker"><span class="badge">핵심 경험 01</span>FIRMWARE ANALYSIS · HOW</div>
-  <h1 class="t">부팅이 멈춘 지점마다 <em>원인을 하나씩 걷어내며</em> 환경을 완성했습니다</h1>
-  <div class="facts"><span>Repo<b>github.com/yeojin-206/HomeCam-Firmware-Analysis</b></span></div>
 
-  <div class="cols c-64">
-    <div class="col">
-      <div class="steps">
-        <div class="step"><div><h4>이미지 분해 — 어디까지가 커널이고 어디부터 파일시스템인가</h4>
-          <p>binwalk로 시그니처 오프셋을 확인해 Bootloader·Kernel·squashfs 영역을 잘라내고, FMK로 RootFS를 풀어 디렉터리 구조와 init 스크립트를 확보했습니다.</p></div></div>
-        <div class="step"><div><h4>커널 — 원본 커널은 QEMU에서 뜨지 않았다</h4>
-          <p>원본 커널은 실제 SoC 보드 전용이라 QEMU 가상 보드에서 부팅되지 않았습니다.
-          <span class="arrow">→</span> <span class="todo">펌웨어와 같은 버전대의 커널을 QEMU MIPS(malta)용으로 크로스 빌드</span>하고, 복원한 RootFS를 붙여 부팅에 성공했습니다.</p></div></div>
-        <div class="step"><div><h4>하드웨어 의존성 — 메인 프로세스가 장치를 못 찾고 종료</h4>
-          <p>부팅 후 메인 바이너리가 카메라·<span class="todo">GPIO/NVRAM</span> 같은 실제 장치를 찾지 못해 바로 종료됐습니다.
-          <span class="arrow">→</span> Ghidra로 종료 지점이 되는 함수를 찾고, <b>LD_PRELOAD로 해당 함수를 정상 값을 돌려주는 함수로 대체</b>해 프로세스가 계속 동작하게 만들었습니다.</p></div></div>
-        <div class="step"><div><h4>정리 — 다른 사람이 따라 할 수 있게</h4>
-          <p>추출부터 동적 분석까지를 4개 챕터로 문서화해 GitHub에 공개했습니다. 담당 챕터: <span class="todo">파일 시스템 구성 / 동적 분석 진행</span></p></div></div>
-      </div>
-      <div class="slot" style="flex:1;min-height:80px"><div><b>Ghidra 디컴파일 화면 + LD_PRELOAD 후킹 코드 (나란히)</b>“이 함수에서 종료 → 이렇게 대체”가 한눈에 보이게 주석 표시</div></div>
-    </div>
+<!-- 💻 Work Experience -->
+<h3>💻 Work Experience</h3>
 
-    <div class="col">
-      <div class="note"><h3>배운 것</h3>
-        <p>에뮬레이션이 실패하는 이유는 대부분 코드가 아니라 <b>하드웨어 주변장치에 대한 의존성</b>이었습니다.
-        무엇을 흉내 내고 무엇을 후킹으로 우회할지 판단하는 것, 즉 <b>대상의 구조를 먼저 이해하는 것</b>이 동적 분석의 핵심이라는 걸 배웠습니다.</p></div>
-      <div><h3>차량보안진단에서는</h3>
-        <p class="txt">제어기(ECU)·IVI·텔레매틱스 단말 진단도 <b>펌웨어 확보 → 구조 복원 → 에뮬레이션 기반 동적 테스트</b>라는 같은 흐름을 따릅니다.
-        실차나 실물 제어기가 한정된 상황에서도 취약점을 재현하고 검증할 수 있는 환경을 직접 만들 수 있다는 점이 이 경험의 의미라고 생각합니다.
-        ISO/SAE 21434에서 요구하는 검증 단계 침투 테스트의 출발점이기도 합니다.</p></div>
-      <div><h3>다음에 해보고 싶은 것</h3>
-        <p class="txt">구축한 환경 위에서 AFL++ QEMU 모드로 네트워크 데몬을 퍼징해, 환경 구축을 넘어 실제 취약점 발견까지 이어가 보고 싶습니다.</p></div>
-      <div class="tools" style="margin-top:auto"><b>사용 기술</b>flashrom · binwalk · FMK · Ghidra · QEMU (MIPS) · 커널 크로스 빌드 · C (LD_PRELOAD) · Linux</div>
-    </div>
-  </div>
-  <div class="foot"><span>정서윤 · 차량보안진단 신입 포트폴리오 2026</span><span>03</span></div>
-</section>
+<p><b>2024.06 ~ 2024.08 | NSHC (현장실습 인턴)</b></p>
+<ul>
+<li>1. 부서 : LLVM 연구소</li>
+<li>2. 업무 내용 : SMT solver 기반 코드 동등성 검증 수행</li>
+<li>컴파일러 난독화 전후 프로그램 동작 동일성 확인</li>
+</ul>
 
-<!-- ===================== 4. SIDE-CHANNEL — WHAT / WHY ===================== -->
-<section class="page" id="p2">
-  <div class="kicker"><span class="badge">핵심 경험 02</span>SIDE-CHANNEL ANALYSIS</div>
-  <h1 class="t">알고리즘이 아니라 <em>알고리즘이 돌아가는 칩</em>을 공격해,<br>전력 파형 <span class="todo">N</span>개만으로 AES 비밀키를 복구했습니다</h1>
-  <p class="lead">ChipWhisperer로 암호 연산 중 전력 파형을 수집하고, DPA·CPA 공격을 C로 직접 구현해 AES와 ARIA의 비밀키를 복구했습니다.</p>
-  <div class="facts"><span>기간<b>2024.03 – 2025.02</b></span><span>소속<b>PEPSI 부채널 분석 동아리</b></span><span>담당<b>파형 수집 · 공격 코드 구현 · 경진대회 문제 풀이</b></span></div>
 
-  <div class="cols c-55">
-    <div class="col">
-      <div><h3>왜 시작했나</h3>
-        <p class="txt">AES는 수학적으로 깨지지 않았지만, 그 AES를 <b>실행하는 칩</b>은 연산할 때마다 데이터에 따라 미세하게 다른 전력을 씁니다.
-        공격자가 기기를 손에 쥘 수 있다면 이 차이만으로 키를 알아낼 수 있다는 점이 흥미로웠고,
-        직접 성공시켜 봐야 이 위협이 얼마나 현실적인지 판단할 수 있다고 생각했습니다.</p></div>
-      <div><h3>무엇을 다르게 했나</h3>
-        <p class="txt">ChipWhisperer가 제공하는 분석 예제를 실행하는 데서 멈추지 않고, <b>공격 로직 전체를 C로 직접 구현</b>했습니다.
-        같은 파형으로 DPA와 CPA를 모두 돌려 필요한 파형 수를 비교했고, 구조가 다른 ARIA에도 적용해 봤습니다.</p></div>
-      <div class="nums">
-        <div><div class="v"><span class="todo">16/16</span></div><div class="l">복구한 AES-128 키 바이트</div></div>
-        <div><div class="v"><span class="todo">N개</span></div><div class="l">CPA 키 복구 최소 파형 수</div></div>
-        <div><div class="v"><span class="todo">1/x</span></div><div class="l">DPA 대비 필요 파형</div></div>
-      </div>
-      <div class="quote"><span class="todo">경진대회 결과나 지도교수·선배 피드백 한 문장</span><small><span class="todo">— 출처</span></small></div>
-    </div>
 
-    <div class="col">
-      <div class="slot" style="flex:1.3;min-height:140px"><div><b>키 후보 256개의 상관계수 그래프</b>정답 키 하나만 튀어오르는 모습 — 직접 구현한 CPA 결과를 matplotlib로 그린 것</div></div>
-      <div class="slot" style="flex:1;min-height:100px"><div><b>파형 수에 따른 복구 키 바이트 수 (DPA vs CPA)</b>두 선이 16에 도달하는 지점 차이가 핵심</div></div>
-    </div>
-  </div>
-  <div class="foot"><span>정서윤 · 차량보안진단 신입 포트폴리오 2026</span><span>04</span></div>
-</section>
+<!-- 🧾 Certificate -->
+<h3>🧾 Certificate</h3>
+<ul>
+<li>2024.02 TOEIC 825</li>
+<li>2025.02 OPIC IH</li>
+<li>2026.03 SQLD</li>
+</ul>
 
-<!-- ===================== 5. SIDE-CHANNEL — HOW ===================== -->
-<section class="page">
-  <div class="kicker"><span class="badge">핵심 경험 02</span>SIDE-CHANNEL ANALYSIS · HOW</div>
-  <h1 class="t">파형 수집부터 키 판별까지 <em>공격 파이프라인 전체</em>를 직접 구현했습니다</h1>
-  <div class="facts"><span>대상<b>AES-128 · ARIA-128, 1라운드 S-box 출력</b></span><span>장비<b>ChipWhisperer <span class="todo">Lite</span> + <span class="todo">STM32F3 타깃</span></b></span></div>
 
-  <div class="fig" style="margin-top:14px">
-    <svg viewBox="0 0 900 70" width="100%" role="img" aria-label="공격 파이프라인">
-      <defs><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#8b93a5"/></marker></defs>
-      <g font-family="Noto Sans KR" font-size="12.5" text-anchor="middle">
-        <rect x="2" y="8" width="200" height="54" rx="7" fill="#eef3fd" stroke="#2563eb"/><text x="102" y="31" font-weight="700" fill="#0d3b8a">① 파형 수집</text><text x="102" y="50" font-size="10.5" fill="#465065">무작위 평문 N개 암호화 + 전력 기록</text>
-        <rect x="234" y="8" width="200" height="54" rx="7" fill="#eef3fd" stroke="#2563eb"/><text x="334" y="31" font-weight="700" fill="#0d3b8a">② 전처리</text><text x="334" y="50" font-size="10.5" fill="#465065">파형 정렬 · 관심 구간 선택</text>
-        <rect x="466" y="8" width="200" height="54" rx="7" fill="#eef3fd" stroke="#2563eb"/><text x="566" y="31" font-weight="700" fill="#0d3b8a">③ 전력 모델</text><text x="566" y="50" font-size="10.5" fill="#465065">키 후보별 HW(S-box(p ⊕ k)) 계산</text>
-        <rect x="698" y="8" width="200" height="54" rx="7" fill="#141a26"/><text x="798" y="31" font-weight="700" fill="#fff">④ 상관 분석</text><text x="798" y="50" font-size="10.5" fill="#c3cbdc">상관계수 최대 후보 = 키 바이트</text>
-        <line x1="202" y1="35" x2="232" y2="35" stroke="#8b93a5" stroke-width="2" marker-end="url(#a2)"/>
-        <line x1="434" y1="35" x2="464" y2="35" stroke="#8b93a5" stroke-width="2" marker-end="url(#a2)"/>
-        <line x1="666" y1="35" x2="696" y2="35" stroke="#8b93a5" stroke-width="2" marker-end="url(#a2)"/>
-      </g>
-    </svg>
-  </div>
+<h3>📝 Used Tool & Skill</h3>
 
-  <div class="cols c-64">
-    <div class="col">
-      <div class="steps">
-        <div class="step"><div><h4>파형이 조금씩 밀려 상관 피크가 흐려졌다</h4>
-          <p>수집 시점마다 파형이 미세하게 어긋나 정답 키의 상관계수가 다른 후보에 묻혔습니다.
-          <span class="arrow">→</span> <span class="todo">기준 파형과의 상호상관으로 정렬</span>한 뒤, S-box 연산 구간만 잘라 분석해 정답 키가 뚜렷하게 분리되도록 했습니다.</p></div></div>
-        <div class="step"><div><h4>파형 수가 늘수록 계산이 느려졌다</h4>
-          <p>키 후보 256개 × 파형 수 × 샘플 수만큼 상관계수를 계산해야 했습니다.
-          <span class="arrow">→</span> <span class="todo">합·제곱합을 누적하는 방식으로 파형을 한 번만 읽고 계산</span>하도록 바꿔 <span class="todo">x배</span> 빨라졌습니다.</p></div></div>
-        <div class="step"><div><h4>AES용 모델을 ARIA에 그대로 쓸 수 없었다</h4>
-          <p>ARIA는 라운드마다 다른 S-box를 쓰는 등 구조가 달라 공격 지점을 다시 잡아야 했습니다.
-          <span class="arrow">→</span> 알고리즘 명세를 보고 <span class="todo">첫 라운드 S-box 출력</span>을 공격 지점으로 정해 모델을 분리 구현했습니다.</p></div></div>
-      </div>
-      <div class="slot" style="flex:1;min-height:70px"><div><b>실제 수집한 AES 전력 파형 1장</b>10라운드 반복 구간에 라벨</div></div>
-    </div>
+<h4>Tool</h4>
+<p>
+  <span style="background:#f1f5f9; padding:5px 10px; border-radius:8px; margin:3px; display:inline-block;">Git</span>
+  <span style="background:#f1f5f9; padding:5px 10px; border-radius:8px; margin:3px; display:inline-block;">GitHub</span>
+  <span style="background:#f1f5f9; padding:5px 10px; border-radius:8px; margin:3px; display:inline-block;">Slack</span>
+  <span style="background:#f1f5f9; padding:5px 10px; border-radius:8px; margin:3px; display:inline-block;">Notion</span>
+</p>
 
-    <div class="col">
-      <div class="note"><h3>배운 것</h3>
-        <p>ARIA를 공격하면서 <b>대상의 내부 구조를 정확히 알아야 공격 지점이 보인다</b>는 것을 체감했습니다.
-        또 “안전한 알고리즘”과 “안전한 구현”은 다르다는 것, 그래서 보안은 설계 문서가 아니라 실물에서 검증해야 한다는 것을 배웠습니다.</p></div>
-      <div><h3>차량보안진단에서는</h3>
-        <p class="txt">디지털키·스마트키, HSM이 탑재된 제어기처럼 <b>공격자가 물리적으로 접근할 수 있는 장치</b>의 키 보호 수준을 평가할 때 바로 쓰이는 관점입니다.
-        직접 공격에 필요한 장비·시간·파형 수를 겪어 봤기 때문에, ISO/SAE 21434 TARA의 <b>공격 가능성(Attack Feasibility)</b>을 근거를 갖고 판단할 수 있습니다.</p></div>
-      <div class="tools" style="margin-top:auto"><b>사용 기술</b>ChipWhisperer · C (DPA/CPA 구현) · Python (시각화) · Hamming Weight 모델 · 파형 정렬</div>
-    </div>
-  </div>
-  <div class="foot"><span>정서윤 · 차량보안진단 신입 포트폴리오 2026</span><span>05</span></div>
-</section>
+<h4>Language</h4>
+<p>
+  <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px; margin:3px; display:inline-block;">C/C++</span>
+  <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px; margin:3px; display:inline-block;">Python</span>
+</p>
 
-<!-- ===================== 6. SUPPORTING — PROTOCOL ===================== -->
-<section class="page" id="p3">
-  <div class="kicker"><span class="badge sub">보조 경험</span>CUSTOM PROTOCOL · NETWORK ANALYSIS</div>
-  <h1 class="t">통신 프로토콜을 직접 만들어 보고 나서, <em>공격자가 어디를 노리는지</em> 보이기 시작했습니다</h1>
-  <div class="facts"><span>광통신 프로토콜<b>2025.09 – 12 · 개인 · github.com/tjdbs57/laser-communication</b></span><span>Movisec<b>2025.06 – 08 · 재전송 공격 패킷 분석</b></span></div>
+</div>
 
-  <div class="cols c-55">
-    <div class="col">
-      <div><h3>만든 것</h3>
-        <p class="txt">라즈베리파이 두 대 사이를 레이저와 CdS 센서로 연결해 데이터를 주고받는 시스템입니다.
-        처음엔 비트만 그냥 보냈더니 데이터가 계속 깨졌습니다. Linux 사용자 공간에서는 μs 단위 타이밍이 보장되지 않고, 센서 반응도 느려 비트를 읽는 시점이 계속 어긋났기 때문입니다.</p></div>
-      <div><h3>해결한 방법</h3>
-        <p class="txt">타이밍은 <b>Start bit 이후 1.5T 지점에서 비트 중앙을 샘플링</b>하고, 송신은 <b>pigpio DMA 파형</b>으로 OS 스케줄링 영향을 없앴습니다.
-        그래도 남는 오류는 <b>[STX][DATA][CHECKSUM][ETX] 프레임과 ACK/NACK·타임아웃 재전송</b>으로 잡았습니다.</p></div>
-      <div class="nums">
-        <div><div class="v"><span class="todo">x% → y%</span></div><div class="l">바이트 오류율 (개선 전 → 후)</div></div>
-        <div><div class="v"><span class="todo">N bps</span></div><div class="l">안정적으로 동작한 전송 속도</div></div>
-      </div>
-      <div class="note"><h3>보안 관점으로 다시 보니</h3>
-        <p>체크섬은 우연한 오류는 잡지만, 공격자가 데이터를 바꾸고 체크섬을 다시 계산하면 막을 수 없습니다. 지난 프레임을 그대로 다시 보내도 구분할 방법이 없습니다.
-        Movisec에서 Wireshark로 분석했던 <b>재전송(Replay) 공격</b>이 바로 이 지점이었고, 차량에서는 이를 <b>AUTOSAR SecOC(MAC + Freshness Value)</b>로 막는다는 것까지 연결해 이해했습니다.</p></div>
-    </div>
 
-    <div class="col">
-      <div class="fig">
-        <svg viewBox="0 0 520 168" width="100%" role="img" aria-label="설계한 프레임과 CAN 프레임 비교">
-          <g font-family="Noto Sans KR" font-size="11" text-anchor="middle">
-            <text x="0" y="14" text-anchor="start" font-weight="700" font-size="11.5" fill="#141a26">직접 설계한 프레임</text>
-            <rect x="0" y="22" width="80" height="34" fill="#141a26"/><text x="40" y="44" fill="#fff" font-weight="700">STX</text>
-            <rect x="80" y="22" width="250" height="34" fill="#eef3fd" stroke="#2563eb"/><text x="205" y="44" fill="#0d3b8a" font-weight="700">DATA</text>
-            <rect x="330" y="22" width="110" height="34" fill="#2563eb"/><text x="385" y="44" fill="#fff" font-weight="700">CHECKSUM</text>
-            <rect x="440" y="22" width="80" height="34" fill="#141a26"/><text x="480" y="44" fill="#fff" font-weight="700">ETX</text>
-            <text x="385" y="72" fill="#465065" font-size="10">불일치 → NACK → 재전송</text>
-            <text x="0" y="102" text-anchor="start" font-weight="700" font-size="11.5" fill="#141a26">CAN 2.0 데이터 프레임</text>
-            <rect x="0" y="110" width="80" height="34" fill="#465065"/><text x="40" y="132" fill="#fff">SOF</text>
-            <rect x="80" y="110" width="80" height="34" fill="#f3f4f7" stroke="#c3cad7"/><text x="120" y="132" fill="#465065">ID · Ctrl</text>
-            <rect x="160" y="110" width="170" height="34" fill="#f3f4f7" stroke="#c3cad7"/><text x="245" y="132" fill="#465065">DATA (0–8B)</text>
-            <rect x="330" y="110" width="60" height="34" fill="#465065"/><text x="360" y="132" fill="#fff">CRC</text>
-            <rect x="390" y="110" width="50" height="34" fill="#465065"/><text x="415" y="132" fill="#fff">ACK</text>
-            <rect x="440" y="110" width="80" height="34" fill="#465065"/><text x="480" y="132" fill="#fff">EOF</text>
-            <line x1="40" y1="56" x2="40" y2="110" stroke="#2563eb" stroke-dasharray="3 3"/>
-            <line x1="385" y1="56" x2="360" y2="110" stroke="#2563eb" stroke-dasharray="3 3"/>
-            <line x1="480" y1="56" x2="480" y2="110" stroke="#2563eb" stroke-dasharray="3 3"/>
-            <text x="260" y="162" fill="#465065" font-size="10">시작·끝 표시, 오류 검출, 수신 확인 — 같은 설계 원리, 그리고 같은 한계(인증 없음)</text>
-          </g>
-        </svg>
-      </div>
-      <div class="slot" style="flex:1;min-height:90px"><div><b>개선 단계별 오류율 막대그래프</b>단순 전송 → 중앙 샘플링 → DMA 송신 → 재전송 추가 (같은 데이터 N바이트 기준)</div></div>
-      <div><h3>차량보안진단에서는</h3>
-        <p class="txt">CAN·UDS 진단은 프레임 구조와 응답 메커니즘을 이해하는 데서 시작합니다. 프로토콜을 직접 설계해 본 덕분에 <b>“어디를 조작하면 수신 측이 속는가”</b>를 먼저 보게 되었습니다.</p></div>
-      <div class="tools"><b>사용 기술</b>C · pigpio (DMA waveform) · Raspberry Pi / Linux · Wireshark</div>
-    </div>
-  </div>
-  <div class="foot"><span>정서윤 · 차량보안진단 신입 포트폴리오 2026</span><span>06</span></div>
-</section>
+<div class="section">
+<h2>Projects</h2>
 
-<!-- ===================== 7. THANK YOU ===================== -->
-<section class="page thanks">
-  <h1>감사합니다.</h1>
-  <p>펌웨어를 꺼내 다시 살려 보고, 파형에서 키를 찾아내 본 것처럼<br>
-  차량에서도 실제로 뚫리는 지점을 직접 확인하고 증명하는 진단자가 되겠습니다.</p>
-  <div class="c">
-    <div><b>Name</b>정서윤</div>
-    <div><b>Email</b><span class="todo">이메일</span></div>
-    <div><b>GitHub</b>github.com/tjdbs57</div>
-  </div>
-  <div class="foot"><span>정서윤 · 차량보안진단 신입 포트폴리오 2026</span><span>07</span></div>
-</section>
+<div class="project">
+  <!-- 🔥 Laser -->
+
+<h3>Laser Communication</h3>
+
+<div style="display:flex; justify-content:center; gap:20px;">
+  <img src="images/laser_communication.png" width="400">
+  <img src="images/laser_comm_total.jpg" width="300">
+  
+</div>
+
+ <p>
+    라즈베리파이 기반 광통신 시스템을 구현하고  
+    커스텀 통신 프로토콜을 설계한 프로젝트
+  </p>
+
+  <!-- 🔥 토글 -->
+  <details>
+    <summary style="cursor:pointer; font-weight:bold;">
+      🔍 상세 보기
+    </summary>
+
+    <br>
+
+    <h4>요약</h4>
+    <ul>
+      <li>광통신 시스템 구현 및 프로토콜 설계</li>
+    </ul>
+
+    <h4>역할</h4>
+    <ul>
+      <li>개인 프로젝트</li>
+      <li>송신/수신 프로그램 구현</li>
+    </ul>
+
+    <h4>성과</h4>
+    <ul>
+      <li>데이터 오류 문제 해결</li>
+      <li>재전송 구조 구현</li>
+    </ul>
+
+    <h4>시기</h4>
+    <ul>
+      <li>2025.09 ~ 2025.12</li>
+    </ul>
+
+    <h4>Code</h4>
+    <a href="https://github.com/tjdbs57/laser-communication" target="_blank">
+      GitHub
+    </a>
+
+    <h4>Used</h4>
+    <p>
+      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">C</span>
+      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">Raspberry Pi</span>
+      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">Linux</span>
+      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">pigpio</span>
+    </p>
+
+    <h4>세부 내용</h4>
+    <ul>
+      <li>STX/ETX 기반 패킷 설계</li>
+      <li>Checksum 오류 검출</li>
+      <li>ACK/NACK 재전송</li>
+    </ul>
+
+  </details>
+</div>
+
+<!-- 🔥 Firmware -->
+<div class="project">
+<h3>Firmware Analysis</h3>
+
+<div style="display:flex; justify-content:center; gap:20px;">
+  <img src="images/homecame.png" width="300">
+  <img src="images/firmware.png" width="300">
+</div>
+
+<p>
+    임베디드 홈캠 펌웨어를 분석하고 시스템 구조와 실행 흐름을 파악한 프로젝트
+  </p>
+
+  <details>
+    <summary style="cursor:pointer; font-weight:bold;">
+      🔍 상세 보기
+    </summary>
+
+    <br>
+
+    <h4>요약</h4>
+    <ul>
+      <li>펌웨어 추출 및 정적/동적 분석을 통한 시스템 구조 분석</li>
+    </ul>
+
+    <h4>역할</h4>
+    <ul>
+      <li>총 8명 팀 프로젝트</li>
+      <li>파일 시스템 분석 및 QEMU 환경 구축</li>
+      <li>실행 파일 분석</li>
+    </ul>
+
+    <h4>성과</h4>
+    <ul>
+      <li>Bootloader → Kernel → RootFS 구조 분석</li>
+      <li>QEMU 기반 부팅 성공</li>
+      <li>프로세스 동작 흐름 파악</li>
+    </ul>
+
+    <h4>시기</h4>
+    <ul>
+      <li>2025.03 ~ 2025.07</li>
+    </ul>
+
+    <h4>Code / Report</h4>
+    <a href="https://github.com/yeojin-206/HomeCam-Firmware-Analysis.git" target="_blank">
+      GitHub
+    </a>
+
+    <h4>Used</h4>
+    <p>
+      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">Linux</span>
+      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">QEMU</span>
+      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">Binwalk</span>
+      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">Ghidra</span>
+      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">C</span>
+      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">flashrom</span>
+    </p>
+    <h4>세부 내용</h4>
+    <ul>
+      <li>flash 메모리에서 펌웨어 추출</li>
+      <li>binwalk 및 FMK 기반 분석</li>
+      <li>squashfs rootfs 재구성</li>
+      <li>QEMU MIPS 부팅</li>
+      <li>Ghidra 정적 분석</li>
+      <li>LD_PRELOAD 기반 후킹</li>
+    </ul>
+
+  </details>
+</div>
+
+<!-- 🔥 Big Integer -->
+<div class="project">
+<h3>Big Integer Library</h3>
+
+<img src="images/bigint.png" width="100%">
+
+<p>
+    큰 정수 연산 라이브러리를 구현하고 Diffie-Hellman 키 교환 시스템 구현한 프로젝트
+  </p>
+
+  <details>
+    <summary style="cursor:pointer; font-weight:bold;">
+      🔍 상세 보기
+    </summary>
+
+    <br>
+
+    <h4>요약</h4>
+    <ul>
+      <li>C 기반 큰 정수 연산 라이브러리 구현 및 성능 최적화</li>
+    </ul>
+
+    <h4>역할</h4>
+    <ul>
+      <li>총 3명 팀 프로젝트 (팀장)</li>
+      <li>연산 구현 및 구조 설계</li>
+      <li>Karatsuba 적용 및 성능 측정</li>
+    </ul>
+
+    <h4>성과</h4>
+    <ul>
+      <li>곱셈 성능 개선 확인</li>
+      <li>입력 크기별 성능 분석 수행</li>
+      <li>연산 정확성 검증</li>
+    </ul>
+
+    <h4>시기</h4>
+    <ul>
+      <li>2024.09 ~ 2024.11</li>
+    </ul>
+
+    <h4>Code</h4>
+    <a href="https://github.com/tjdbs57/2024_fall_BigInt.git" target="_blank">
+      GitHub
+    </a>
+
+   <h4>Used</h4>
+    <p>
+      <span style="background:#eee; padding:5px 10px; border-radius:8px;">C</span>
+      <span style="background:#eee; padding:5px 10px; border-radius:8px;">Valgrind</span>
+      <span style="background:#eee; padding:5px 10px; border-radius:8px;">Python</span>
+      <span style="background:#eee; padding:5px 10px; border-radius:8px;">GCC</span>
+    </p>
+
+    <h4>세부 내용</h4>
+    <ul>
+      <li>Arbitrary Precision 구조 설계</li>
+      <li>사칙연산 구현</li>
+      <li>Karatsuba 곱셈 구현</li>
+      <li>rdtsc 기반 성능 측정</li>
+      <li>모듈화 구조 설계</li>
+    </ul>
+
+  </details>
+</div>
+
 
 </body>
 </html>
