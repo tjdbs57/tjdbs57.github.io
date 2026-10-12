@@ -8,99 +8,129 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#141a26; --ink2:#465065; --ink3:#8b93a5;
-  --line:#e2e6ee; --bg:#eceff4; --paper:#fff;
-  --accent:#0d3b8a; --accent2:#2563eb; --soft:#eef3fd;
+  --ink:#1a1d23; --ink2:#454b57; --ink3:#8a909c;
+  --line:#dcdfe5; --bg:#e9ebef; --paper:#fff;
+  --accent:#173f87; --accent2:#2a5cc4; --soft:#f3f6fb;
   --todo:#fff2a0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-size:12.5px;line-height:1.65;-webkit-font-smoothing:antialiased;word-break:keep-all}
+body{background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-size:10.2pt;line-height:1.7;-webkit-font-smoothing:antialiased;word-break:keep-all}
 b,strong{font-weight:700;color:var(--ink)}
 
-.page{width:297mm;height:210mm;margin:24px auto;background:var(--paper);box-shadow:0 4px 24px rgba(20,26,38,.08);position:relative;overflow:hidden;padding:15mm 17mm 13mm;display:flex;flex-direction:column}
-.foot{position:absolute;left:17mm;right:17mm;bottom:7mm;display:flex;justify-content:space-between;font-size:9.5px;color:var(--ink3)}
+/* A4 portrait sheet */
+.page{width:210mm;height:297mm;margin:24px auto;background:var(--paper);box-shadow:0 2px 14px rgba(0,0,0,.08);position:relative;overflow:hidden;padding:20mm 19mm 18mm;display:flex;flex-direction:column}
+.foot{position:absolute;left:19mm;right:19mm;bottom:9mm;display:flex;justify-content:space-between;font-size:8pt;color:var(--ink3);border-top:.5px solid var(--line);padding-top:4px}
 
-.todo{background:var(--todo);border-radius:3px;padding:0 3px;color:#6e5200}
-.slot{border:1.5px dashed #c3cad7;border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--ink3);font-size:11px;padding:10px;background:#fafbfc}
-.slot b{display:block;color:var(--ink2);font-size:11.5px}
-.banner{max-width:297mm;margin:16px auto 0;background:#fff8d6;border:1px solid #f0d97a;border-radius:10px;padding:11px 16px;font-size:12.5px}
+.todo{background:var(--todo);padding:0 2px;color:#6e5200}
+.slot{border:1px dashed #b9bfca;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--ink3);font-size:8.6pt;padding:8px;background:#fbfbfc}
+.slot b{display:block;color:var(--ink2);font-size:9pt}
+.banner{max-width:210mm;margin:16px auto 0;background:#fff8d6;border:1px solid #f0d97a;border-radius:6px;padding:10px 14px;font-size:12px}
 
-/* header of each project page */
-.kicker{display:flex;align-items:center;gap:10px;font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--ink3)}
-.kicker .badge{background:var(--accent);color:#fff;border-radius:4px;padding:1px 8px;letter-spacing:.04em}
-.kicker .badge.sub{background:var(--ink2)}
-h1.t{font-size:24px;font-weight:900;line-height:1.35;letter-spacing:-.025em;margin:8px 0 8px}
-h1.t em{font-style:normal;color:var(--accent2)}
-.lead{font-size:13px;color:var(--ink2);max-width:920px}
-.facts{display:flex;gap:22px;font-size:11px;color:var(--ink3);margin-top:10px;padding-bottom:11px;border-bottom:1.5px solid var(--ink)}
-.facts span b{color:var(--ink2);font-weight:500;margin-left:5px}
+/* section header — report style */
+.kicker{display:flex;align-items:baseline;gap:8px;font-size:8.5pt;color:var(--ink3);padding-bottom:5px;border-bottom:2px solid var(--ink)}
+.kicker .badge{font-weight:700;color:var(--accent)}
+.kicker .badge::after{content:"·";margin-left:8px;color:var(--ink3);font-weight:400}
+.kicker .badge.sub{color:var(--ink2)}
+h1.t{font-size:15.5pt;font-weight:700;line-height:1.45;letter-spacing:-.02em;margin:12px 0 6px}
+h1.t br{display:none}
+h1.t em{font-style:normal;color:var(--accent)}
+.lead{font-size:10pt;color:var(--ink2)}
+.facts{display:grid;grid-template-columns:auto 1fr;column-gap:14px;row-gap:1px;font-size:9pt;margin-top:10px;padding:6px 0;border-top:.5px solid var(--line);border-bottom:.5px solid var(--line)}
+.facts span{display:contents;color:var(--ink3)}
+.facts span b{color:var(--ink);font-weight:400}
 
-.cols{display:grid;gap:22px;flex:1;margin-top:14px;min-height:0}
-.c-55{grid-template-columns:1fr 1.05fr}
-.c-64{grid-template-columns:1.2fr 1fr}
-.col{display:flex;flex-direction:column;gap:12px;min-height:0}
+.cols{display:flex;flex-direction:column;gap:12px;flex:1;margin-top:14px;min-height:0}
+.col{display:flex;flex-direction:column;gap:11px;min-height:0}
+.col:last-child{flex:1}
 
-h3{font-size:13px;font-weight:900;color:var(--accent);margin-bottom:3px}
-h3 small{font-weight:500;color:var(--ink3);font-size:10.5px;margin-left:6px}
-p+p{margin-top:4px}
+h3{font-size:10.5pt;font-weight:700;color:var(--ink);margin-bottom:2px;display:flex;align-items:baseline;gap:6px}
+h3::before{content:"";width:3px;height:10px;background:var(--accent);align-self:center}
+h3 small{font-weight:400;color:var(--ink3);font-size:8.5pt}
+p+p{margin-top:3px}
 .txt{color:var(--ink2)}
 
-/* step timeline */
-.steps{counter-reset:s;display:flex;flex-direction:column;gap:11px}
-.step{display:grid;grid-template-columns:26px 1fr;gap:10px}
-.step::before{counter-increment:s;content:counter(s);width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;font-size:11.5px;display:flex;align-items:center;justify-content:center;margin-top:1px}
-.step h4{font-size:12.5px;font-weight:700}
-.step p{color:var(--ink2);font-size:11.8px}
-.step .arrow{color:var(--accent2);font-weight:700}
+.steps{counter-reset:s;display:flex;flex-direction:column;gap:8px}
+.step{display:grid;grid-template-columns:20px 1fr;gap:8px}
+.step::before{counter-increment:s;content:counter(s) ".";font-weight:700;color:var(--accent);font-size:10.5pt}
+.step h4{font-size:10pt;font-weight:700}
+.step p{color:var(--ink2);font-size:9.6pt}
+.step .arrow{color:var(--accent);font-weight:700}
 
-/* numbers */
-.nums{display:flex;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.nums div{flex:1;padding:9px 12px;border-left:1px solid var(--line)}
+.nums{display:flex;border-top:.5px solid var(--line);border-bottom:.5px solid var(--line)}
+.nums div{flex:1;padding:6px 10px;border-left:.5px solid var(--line)}
 .nums div:first-child{border-left:none;padding-left:0}
-.nums .v{font-size:21px;font-weight:900;color:var(--accent);line-height:1.25}
-.nums .l{font-size:10.5px;color:var(--ink2)}
+.nums .v{font-size:13.5pt;font-weight:700;color:var(--accent);line-height:1.3}
+.nums .l{font-size:8.3pt;color:var(--ink2)}
 
-.quote{border-left:3px solid var(--accent2);padding:2px 0 2px 12px;font-size:12px;color:var(--ink2)}
-.quote small{display:block;color:var(--ink3);font-size:10.5px}
-.note{background:var(--soft);border-radius:8px;padding:11px 14px}
-.note h3{margin-bottom:2px}
-.note p{color:#2b3a5a;font-size:11.8px}
-.tools{font-size:11px;color:var(--ink3);border-top:1px solid var(--line);padding-top:8px}
-.tools b{color:var(--ink2);font-weight:700;margin-right:6px}
-.fig{border:1px solid var(--line);border-radius:8px;padding:12px 14px}
-.fig .cap{font-size:10.5px;color:var(--ink3);margin-top:4px}
+.quote{padding-left:11px;border-left:2px solid var(--line);font-size:9.6pt;color:var(--ink2);font-style:italic}
+.quote small{display:block;color:var(--ink3);font-size:8.3pt;font-style:normal}
+.note{background:var(--soft);padding:8px 12px;border-left:2px solid var(--accent)}
+.note h3::before{display:none}
+.note p{color:var(--ink2);font-size:9.6pt}
+.tools{font-size:8.8pt;color:var(--ink2);border-top:.5px solid var(--line);padding-top:6px}
+.tools b{color:var(--ink);margin-right:6px}
+.fig{padding:4px 0}
+.fig svg{max-height:62mm}
+.fig .cap{font-size:8.3pt;color:var(--ink3);margin-top:3px;text-align:center}
 
-/* cover */
-.cover h1{font-size:15px;font-weight:700;color:var(--accent2);letter-spacing:.02em}
-.cover .name{font-size:40px;font-weight:900;letter-spacing:-.03em;line-height:1.2;margin:2px 0 10px}
-.cover .intro{font-size:14px;color:var(--ink2);max-width:860px;line-height:1.75}
-.exp{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:20px}
-.exp a{display:block;text-decoration:none;color:inherit;border-top:3px solid var(--accent);padding-top:10px}
-.exp a.sub{border-top-color:var(--ink3)}
-.exp .lbl{font-size:10.5px;font-weight:700;color:var(--accent2);letter-spacing:.04em}
+/* cover — resume style */
+.cover h1{font-size:9pt;font-weight:500;color:var(--ink3);letter-spacing:.04em}
+.cover .name{font-size:24pt;font-weight:700;letter-spacing:-.02em;line-height:1.3;margin:2px 0 10px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.cover .intro{font-size:10pt;color:var(--ink2)}
+.cover h2.sec{font-size:10.5pt;font-weight:700;margin:20px 0 6px;padding-bottom:4px;border-bottom:.5px solid var(--ink)}
+.exp{display:flex;flex-direction:column}
+.exp a{display:grid;grid-template-columns:24mm 1fr;column-gap:12px;text-decoration:none;color:inherit;padding:8px 0;border-bottom:.5px solid var(--line)}
+.exp .lbl{font-size:8.5pt;font-weight:700;color:var(--accent);grid-row:1/4}
 .exp a.sub .lbl{color:var(--ink3)}
-.exp h2{font-size:15.5px;font-weight:900;margin:2px 0 4px;line-height:1.4}
-.exp p{font-size:11.8px;color:var(--ink2)}
-.exp .pg{font-size:10.5px;color:var(--ink3);margin-top:6px}
-.profile{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:22px;margin-top:auto;padding-top:14px;border-top:1.5px solid var(--ink)}
-.profile h3{font-size:11px;color:var(--ink3);letter-spacing:.06em;margin-bottom:5px}
-.row{display:flex;gap:10px;font-size:11.5px;color:var(--ink2);padding:1px 0}
-.row .d{color:var(--ink3);width:84px;flex:none}
+.exp h2{font-size:10.5pt;font-weight:700;line-height:1.45}
+.exp h2 br{display:none}
+.exp p{font-size:9.4pt;color:var(--ink2)}
+.exp .pg{font-size:8.3pt;color:var(--ink3)}
+.profile{display:flex;flex-direction:column}
+.profile h3{font-size:10.5pt;margin:18px 0 6px;padding-bottom:4px;border-bottom:.5px solid var(--ink);display:block}
+.profile h3::before{display:none}
+.row{display:grid;grid-template-columns:30mm 1fr;gap:12px;font-size:9.4pt;color:var(--ink2);padding:2px 0}
+.row:not(:has(.d)){grid-template-columns:1fr}
+.row .d{color:var(--ink3)}
 
-/* thanks */
-.thanks{justify-content:center;background:var(--ink);color:#fff;padding-left:26mm}
-.thanks h1{font-size:52px;font-weight:900;letter-spacing:-.03em}
-.thanks p{color:#c3cbdc;font-size:14.5px;margin-top:12px;max-width:620px;line-height:1.8}
-.thanks .c{margin-top:30px;font-size:13px;line-height:2;color:#c3cbdc}
-.thanks .c b{display:inline-block;width:76px;color:#7fa6f5;font-weight:700}
+/* closing page */
+.thanks{justify-content:flex-start}
+.thanks h1{font-size:20pt;font-weight:700;margin-top:60mm;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.thanks p{color:var(--ink2);font-size:10.5pt;margin-top:12px;line-height:1.85}
+.thanks .c{margin-top:22px;font-size:9.6pt;line-height:2;color:var(--ink2)}
+.thanks .c b{display:inline-block;width:22mm;color:var(--ink3);font-weight:400}
 
-@media screen and (max-width:1160px){
-  .page{width:auto;height:auto;margin:16px;padding:22px 16px 40px}
-  .cols,.c-55,.c-64,.exp,.profile{grid-template-columns:1fr}
+/* cover v3 */
+.cv-top{display:flex;justify-content:space-between;font-size:8.5pt;font-weight:700;letter-spacing:.08em;color:var(--ink3);padding-bottom:6px;border-bottom:.5px solid var(--line)}
+.cv-job{font-size:12pt;font-weight:700;color:var(--accent);margin-top:22mm}
+.cv-name{font-size:30pt;font-weight:700;letter-spacing:-.02em;line-height:1.25}
+.cv-tag{font-size:10.5pt;color:var(--ink2);margin-top:4px;padding-bottom:12px;border-bottom:2px solid var(--ink)}
+.cv-kw{display:grid;grid-template-columns:repeat(4,1fr);margin-top:12px;border-bottom:.5px solid var(--line)}
+.cv-kw div{padding:4px 10px 10px;border-left:.5px solid var(--line)}
+.cv-kw div:first-child{border-left:none;padding-left:0}
+.cv-kw b{display:block;font-size:10pt;color:var(--accent)}
+.cv-kw span{font-size:8.3pt;color:var(--ink3)}
+.stack .row{grid-template-columns:30mm 1fr}
+.cv-contact{margin-top:auto;display:flex;gap:28px;font-size:9.4pt;color:var(--ink2);padding-top:8px;border-top:.5px solid var(--line)}
+.cv-contact b{color:var(--ink3);font-weight:400;margin-right:4px}
+.cover h2.sec{margin-top:16px}
+.exp a{padding:6px 0}
+
+/* supporting page is a single sheet — keep it compact */
+#p3 .fig svg{max-height:40mm}
+#p3 .col{gap:9px}
+#p3 .cols{gap:9px}
+#p3 .slot{min-height:64px!important}
+
+@media screen and (max-width:820px){
+  .page{width:auto;height:auto;margin:12px;padding:22px 16px 40px}
   .nums{flex-direction:column}.nums div{border-left:none;padding-left:0}
-  .banner{margin:16px}
+  .exp a,.row,.stack .row{grid-template-columns:1fr}
+  .cv-kw{grid-template-columns:1fr 1fr}
+  .cv-job{margin-top:8px}
+  .banner{margin:12px}
 }
-@page{size:A4 landscape;margin:0}
+@page{size:A4 portrait;margin:0}
 @media print{
   body{background:#fff}
   .page{margin:0;box-shadow:none;page-break-after:always}
@@ -115,47 +145,53 @@ p+p{margin-top:4px}
 
 <!-- ===================== 1. COVER ===================== -->
 <section class="page cover">
-  <h1>차량보안진단 지원 포트폴리오</h1>
-  <div class="name">정서윤</div>
-  <p class="intro">진단은 대상이 <b>실제로 어떻게 동작하는지</b> 아는 데서 시작한다고 생각합니다.
-  그래서 문서를 읽는 것에서 멈추지 않고, 칩에서 펌웨어를 직접 꺼내 에뮬레이터 위에서 다시 살려 보고,
-  암호 칩이 흘리는 전력 파형에서 비밀키를 찾아내며 “직접 뜯어보고 증명하는” 방식으로 공부해 왔습니다.</p>
+  <div class="cv-top"><span>2026 PORTFOLIO</span><span>현대오토에버 지원</span></div>
+  <div class="cv-job">차량보안진단 신입 포트폴리오</div>
+  <div class="cv-name">정서윤</div>
+  <p class="cv-tag">한 걸음 더 깊이 생각하는 차량보안진단, 정서윤입니다.</p>
 
+  <div class="cv-kw">
+    <div><b>펌웨어 추출·분석</b><span>SPI 덤프 · 부팅 흐름 복원</span></div>
+    <div><b>에뮬레이션 동적 분석</b><span>QEMU MIPS 환경 구축</span></div>
+    <div><b>부채널 공격 구현</b><span>CPA/DPA 키 복구 (C)</span></div>
+    <div><b>통신 프로토콜 분석</b><span>프레임 설계 · Replay 분석</span></div>
+  </div>
+
+  <h2 class="sec">기술 스택</h2>
+  <div class="stack">
+    <div class="row"><span class="d">Language</span><span>C, C++, Python, Shell Script</span></div>
+    <div class="row"><span class="d">Firmware · RE</span><span>flashrom, binwalk, Ghidra, QEMU</span></div>
+    <div class="row"><span class="d">Hardware</span><span>ChipWhisperer, SPI, Raspberry Pi (pigpio)</span></div>
+    <div class="row"><span class="d">Network · Env</span><span>Wireshark, Linux (Ubuntu), Git</span></div>
+  </div>
+
+  <h2 class="sec">프로젝트 경험</h2>
   <div class="exp">
-    <a href="#p1"><div class="lbl">핵심 경험 01</div>
-      <h2>홈캠 펌웨어 추출 및<br>QEMU 동적 분석 환경 구축</h2>
+    <a href="#p1"><div class="lbl">핵심 01</div>
+      <h2>홈캠 펌웨어 추출 및 QEMU 동적 분석 환경 구축</h2>
       <p>SPI 플래시 덤프부터 에뮬레이션 부팅까지, 실기기 없이 반복 분석 가능한 환경을 만든 경험</p>
-      <div class="pg">2025.05–08 · 8인 팀 · p.2–3</div></a>
-    <a href="#p2"><div class="lbl">핵심 경험 02</div>
-      <h2>전력 부채널 분석으로<br>AES·ARIA 비밀키 복구</h2>
+      <div class="pg">2025.05–08 · 화이트햇스쿨 8인 팀 · p.2–3</div></a>
+    <a href="#p2"><div class="lbl">핵심 02</div>
+      <h2>전력 부채널 분석으로 AES·ARIA 비밀키 복구</h2>
       <p>ChipWhisperer 파형 수집과 C로 직접 구현한 CPA로 하드웨어 구현의 취약점을 증명한 경험</p>
-      <div class="pg">2024.03–2025.02 · PEPSI · p.4–5</div></a>
-    <a href="#p3" class="sub"><div class="lbl">보조 경험</div>
+      <div class="pg">2024.03–2025.02 · PEPSI 동아리 · p.4–5</div></a>
+    <a href="#p3" class="sub"><div class="lbl">보조</div>
       <h2>광통신 커스텀 프로토콜 설계</h2>
-      <p>프레임·오류 검출·재전송을 직접 설계하고, 재전송 공격 분석 경험과 엮어 프로토콜을 공격자 시선으로 본 경험</p>
+      <p>프레임·오류 검출·재전송을 직접 설계하고, 재전송 공격 분석과 엮어 프로토콜을 공격자 시선으로 본 경험</p>
       <div class="pg">2025.09–12 · 개인 · p.6</div></a>
   </div>
 
-  <div class="profile">
-    <div>
-      <h3>EDUCATION · WORK</h3>
-      <div class="row"><span class="d">2022 – 2027.02</span><span>국민대학교 정보보안암호수학과 (졸업 예정) <span class="todo">학점</span></span></div>
-      <div class="row"><span class="d">2025.05 – 08</span><span>화이트햇스쿨 3기 수료</span></div>
-      <div class="row"><span class="d">2024.06 – 08</span><span>NSHC LLVM 연구소 현장실습 — SMT solver로 난독화 전후 코드 동등성 검증</span></div>
-    </div>
-    <div>
-      <h3>OTHER ACTIVITIES</h3>
-      <div class="row"><span class="d">2025.06 – 08</span><span>Movisec — Wireshark 기반 DDoS·재전송 공격 트래픽 분석</span></div>
-      <div class="row"><span class="d">2024.09 – 11</span><span>BigInt 라이브러리·DH 키교환 구현 (팀장)</span></div>
-      <div class="row"><span class="d">2023.09 – 2024.12</span><span>CO2 — LEA·AES·SHA 구현 최적화</span></div>
-    </div>
-    <div>
-      <h3>SKILLS · CERTIFICATE</h3>
-      <div class="row"><span>C/C++, Python · Ghidra, QEMU, binwalk, flashrom, ChipWhisperer, Wireshark · Linux</span></div>
-      <div class="row"><span>SQLD (2026.03) · OPIc IH · TOEIC 825</span></div>
-    </div>
+  <h2 class="sec">학력 · 경력 · 자격</h2>
+  <div class="stack">
+    <div class="row"><span class="d">2022 – 2027.02</span><span>국민대학교 정보보안암호수학과 (졸업 예정) <span class="todo">학점</span></span></div>
+    <div class="row"><span class="d">2025.05 – 08</span><span>화이트햇스쿨 3기 수료</span></div>
+    <div class="row"><span class="d">2024.06 – 08</span><span>NSHC LLVM 연구소 현장실습 — SMT solver로 난독화 전후 코드 동등성 검증</span></div>
+    <div class="row"><span class="d">기타 활동</span><span>Movisec(네트워크 보안) · BigInt·DH 구현(팀장) · CO2(암호 최적화)</span></div>
+    <div class="row"><span class="d">자격 · 어학</span><span>SQLD (2026.03) · OPIc IH · TOEIC 825</span></div>
   </div>
-  <div class="foot"><span>정서윤 · Vehicle Security Assessment</span><span>01</span></div>
+
+  <div class="cv-contact"><span><b>Email</b> <span class="todo">이메일</span></span><span><b>GitHub</b> github.com/tjdbs57</span></div>
+  <div class="foot"><span>정서윤 · 차량보안진단 신입 포트폴리오 2026</span><span>01</span></div>
 </section>
 
 <!-- ===================== 2. FIRMWARE — WHAT / WHY ===================== -->
@@ -206,7 +242,7 @@ p+p{margin-top:4px}
       <div class="slot" style="flex:1;min-height:110px"><div><b>QEMU에서 홈캠 RootFS가 부팅된 터미널 화면</b>부팅 로그 마지막 부분 + 쉘 프롬프트가 보이게 캡처</div></div>
     </div>
   </div>
-  <div class="foot"><span>정서윤 · Vehicle Security Assessment</span><span>02</span></div>
+  <div class="foot"><span>정서윤 · 차량보안진단 신입 포트폴리오 2026</span><span>02</span></div>
 </section>
 
 <!-- ===================== 3. FIRMWARE — HOW ===================== -->
@@ -245,7 +281,7 @@ p+p{margin-top:4px}
       <div class="tools" style="margin-top:auto"><b>사용 기술</b>flashrom · binwalk · FMK · Ghidra · QEMU (MIPS) · 커널 크로스 빌드 · C (LD_PRELOAD) · Linux</div>
     </div>
   </div>
-  <div class="foot"><span>정서윤 · Vehicle Security Assessment</span><span>03</span></div>
+  <div class="foot"><span>정서윤 · 차량보안진단 신입 포트폴리오 2026</span><span>03</span></div>
 </section>
 
 <!-- ===================== 4. SIDE-CHANNEL — WHAT / WHY ===================== -->
@@ -277,7 +313,7 @@ p+p{margin-top:4px}
       <div class="slot" style="flex:1;min-height:100px"><div><b>파형 수에 따른 복구 키 바이트 수 (DPA vs CPA)</b>두 선이 16에 도달하는 지점 차이가 핵심</div></div>
     </div>
   </div>
-  <div class="foot"><span>정서윤 · Vehicle Security Assessment</span><span>04</span></div>
+  <div class="foot"><span>정서윤 · 차량보안진단 신입 포트폴리오 2026</span><span>04</span></div>
 </section>
 
 <!-- ===================== 5. SIDE-CHANNEL — HOW ===================== -->
@@ -327,7 +363,7 @@ p+p{margin-top:4px}
       <div class="tools" style="margin-top:auto"><b>사용 기술</b>ChipWhisperer · C (DPA/CPA 구현) · Python (시각화) · Hamming Weight 모델 · 파형 정렬</div>
     </div>
   </div>
-  <div class="foot"><span>정서윤 · Vehicle Security Assessment</span><span>05</span></div>
+  <div class="foot"><span>정서윤 · 차량보안진단 신입 포트폴리오 2026</span><span>05</span></div>
 </section>
 
 <!-- ===================== 6. SUPPORTING — PROTOCOL ===================== -->
@@ -383,7 +419,7 @@ p+p{margin-top:4px}
       <div class="tools"><b>사용 기술</b>C · pigpio (DMA waveform) · Raspberry Pi / Linux · Wireshark</div>
     </div>
   </div>
-  <div class="foot"><span>정서윤 · Vehicle Security Assessment</span><span>06</span></div>
+  <div class="foot"><span>정서윤 · 차량보안진단 신입 포트폴리오 2026</span><span>06</span></div>
 </section>
 
 <!-- ===================== 7. THANK YOU ===================== -->
@@ -396,7 +432,7 @@ p+p{margin-top:4px}
     <div><b>Email</b><span class="todo">이메일</span></div>
     <div><b>GitHub</b>github.com/tjdbs57</div>
   </div>
-  <div class="foot" style="color:#7f8aa3"><span></span><span>07</span></div>
+  <div class="foot"><span>정서윤 · 차량보안진단 신입 포트폴리오 2026</span><span>07</span></div>
 </section>
 
 </body>
