@@ -1,325 +1,336 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>Seoyun Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>‘끈질긴 분석가’ 정서윤입니다.</title>
+  <meta name="description" content="정보보안 포트폴리오 - 정서윤" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    :root {
+      --bg: #191919;
+      --bg-card: #202020;
+      --bg-hover: #2a2a2a;
+      --text: #e9e9e7;
+      --text-sub: #9b9b9b;
+      --divider: #2f2f2f;
+      --code-bg: #2b2b2b;
+      --code-text: #ff7369;
+      --tag-gray: #474747;
+      --tag-blue: #2e4a75;
+      --tag-green: #2b5a3e;
+      --tag-red: #6e3630;
+      --tag-purple: #4c3970;
+      --max: 720px;
+    }
 
-<style>
-body {
-  font-family: Arial;
-  max-width: 900px;
-  margin: auto;
-  background-color: #f9f9f9;
-}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-.section {
-  background: white;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 10px;
-}
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-.project {
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin-top: 20px;
-  border-radius: 10px;
-}
-</style>
+    a { color: inherit; text-decoration: none; }
 
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+
+    h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--divider);
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 40px 0 16px;
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 8px 0 20px;
+    }
+
+    h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 16px 0 8px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--divider);
+      margin: 24px 0;
+    }
+
+    code, .date {
+      font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+      font-size: 0.82em;
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-right: 6px;
+      white-space: nowrap;
+    }
+
+    .cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    /* Profile */
+    .profile {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .profile-photo {
+      text-align: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--divider);
+    }
+    .profile-photo img {
+      width: 180px;
+      max-width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 4px;
+      background: var(--bg-card);
+    }
+    .profile h3 { margin-top: 12px; }
+
+    /* Timeline entries */
+    .entry { margin-bottom: 18px; }
+    .entry-title { font-weight: 500; }
+    .entry ul, .entry ol { margin: 8px 0 0 22px; }
+    .entry li { margin: 4px 0; font-size: 15px; }
+    .entry li::marker { color: var(--text-sub); }
+
+    .line { margin-bottom: 10px; }
+
+    /* Skills */
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+    .chips code { margin: 0; }
+
+    /* Project gallery */
+    .gallery-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 16px 0 14px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--bg-card);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.06);
+      transition: background 0.15s, transform 0.15s;
+      display: block;
+    }
+    .card:hover { background: var(--bg-hover); transform: translateY(-2px); }
+    .card-cover {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      background: #2a2a2a;
+    }
+    .card-body { padding: 10px 12px 14px; }
+    .card-name {
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card-name::before { content: "📄"; font-size: 14px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 4px; }
+    .tag {
+      font-size: 12px;
+      padding: 1px 6px;
+      border-radius: 3px;
+      background: var(--tag-gray);
+    }
+    .tag.blue { background: var(--tag-blue); }
+    .tag.green { background: var(--tag-green); }
+    .tag.red { background: var(--tag-red); }
+    .tag.purple { background: var(--tag-purple); }
+
+    footer {
+      margin-top: 80px;
+      color: var(--text-sub);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .page { padding: 48px 16px 80px; }
+      h1 { font-size: 30px; }
+      .cols, .profile { grid-template-columns: 1fr; gap: 24px; }
+      .profile-photo { border-bottom: none; }
+    }
+  </style>
 </head>
-
 <body>
-
-<h1>💻 Seoyun Portfolio</h1>
-
-<div style="text-align:center; margin-top:20px;">
-  <img src="images/profile.jpg" width="150" style="border-radius:50%;">
-</div>
-
-
-<div class="section">
-<h2>🎓 Education</h2>
-<p><b>2022.03</b> 국민대학교 정보보안암호수학과 입학</p>
-<p><b>2026.08</b> 졸업 예정</p>
-</div>
-
-
-<div class="section">
-<h2>📌 About Me</h2>
-
-<!-- 🔎 Club -->
-<h3>🔎 Club</h3>
-
-<p><b>2025.06 ~ 2025.08 | Movisec (네트워크보안동아리)</b></p>
-<ul>
-<li>Wireshark를 활용한 네트워크 패킷 분석 수행</li>
-<li>DDoS 공격 상황에서 이상 트래픽 패턴 식별</li>
-<li>재전송 공격 환경에서 패킷 흐름 및 통신 흐름 분석</li>
-</ul>
-
-<p><b>2024.03 ~ 2025.02 | PEPSI (부채널 분석 동아리)</b></p>
-<ul>
-<li>AES·ARIA 암호 알고리즘 대상 부채널 공격 실습 및 경진대회 문제 풀이 수행</li>
-<li>ChipWhisperer 기반 전력 파형 분석과 DPA/CPA 공격을 C언어로 구현하여 비밀 키 복구 성공</li>
-</ul>
-
-<p><b>2023.09 ~ 2024.12 | CO2 (최적화 동아리)</b></p>
-<ul>
-<li>LEA, AES, SHA 등 암호 알고리즘 구현</li>
-<li>연산 구조 및 메모리 접근 기반 최적화 수행</li>
-</ul>
-
-
-<!-- 💻 Work Experience -->
-<h3>💻 Work Experience</h3>
-
-<p><b>2024.06 ~ 2024.08 | NSHC (현장실습 인턴)</b></p>
-<ul>
-<li>1. 부서 : LLVM 연구소</li>
-<li>2. 업무 내용 : SMT solver 기반 코드 동등성 검증 수행</li>
-<li>컴파일러 난독화 전후 프로그램 동작 동일성 확인</li>
-</ul>
-
-
-
-<!-- 🧾 Certificate -->
-<h3>🧾 Certificate</h3>
-<ul>
-<li>2024.02 TOEIC 825</li>
-<li>2025.02 OPIC IH</li>
-<li>2026.03 SQLD</li>
-</ul>
-
-
-<h3>📝 Used Tool & Skill</h3>
-
-<h4>Tool</h4>
-<p>
-  <span style="background:#f1f5f9; padding:5px 10px; border-radius:8px; margin:3px; display:inline-block;">Git</span>
-  <span style="background:#f1f5f9; padding:5px 10px; border-radius:8px; margin:3px; display:inline-block;">GitHub</span>
-  <span style="background:#f1f5f9; padding:5px 10px; border-radius:8px; margin:3px; display:inline-block;">Slack</span>
-  <span style="background:#f1f5f9; padding:5px 10px; border-radius:8px; margin:3px; display:inline-block;">Notion</span>
-</p>
-
-<h4>Language</h4>
-<p>
-  <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px; margin:3px; display:inline-block;">C/C++</span>
-  <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px; margin:3px; display:inline-block;">Python</span>
-</p>
-
-</div>
-
-
-<div class="section">
-<h2>Projects</h2>
-
-<div class="project">
-  <!-- 🔥 Laser -->
-
-<h3>Laser Communication</h3>
-
-<div style="display:flex; justify-content:center; gap:20px;">
-  <img src="images/laser_communication.png" width="400">
-  <img src="images/laser_comm_total.jpg" width="300">
-  
-</div>
-
- <p>
-    라즈베리파이 기반 광통신 시스템을 구현하고  
-    커스텀 통신 프로토콜을 설계한 프로젝트
-  </p>
-
-  <!-- 🔥 토글 -->
-  <details>
-    <summary style="cursor:pointer; font-weight:bold;">
-      🔍 상세 보기
-    </summary>
-
-    <br>
-
-    <h4>요약</h4>
-    <ul>
-      <li>광통신 시스템 구현 및 프로토콜 설계</li>
-    </ul>
-
-    <h4>역할</h4>
-    <ul>
-      <li>개인 프로젝트</li>
-      <li>송신/수신 프로그램 구현</li>
-    </ul>
-
-    <h4>성과</h4>
-    <ul>
-      <li>데이터 오류 문제 해결</li>
-      <li>재전송 구조 구현</li>
-    </ul>
-
-    <h4>시기</h4>
-    <ul>
-      <li>2025.09 ~ 2025.12</li>
-    </ul>
-
-    <h4>Code</h4>
-    <a href="https://github.com/tjdbs57/laser-communication" target="_blank">
-      GitHub
-    </a>
-
-    <h4>Used</h4>
-    <p>
-      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">C</span>
-      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">Raspberry Pi</span>
-      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">Linux</span>
-      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">pigpio</span>
-    </p>
-
-    <h4>세부 내용</h4>
-    <ul>
-      <li>STX/ETX 기반 패킷 설계</li>
-      <li>Checksum 오류 검출</li>
-      <li>ACK/NACK 재전송</li>
-    </ul>
-
-  </details>
-</div>
-
-<!-- 🔥 Firmware -->
-<div class="project">
-<h3>Firmware Analysis</h3>
-
-<div style="display:flex; justify-content:center; gap:20px;">
-  <img src="images/homecame.png" width="300">
-  <img src="images/firmware.png" width="300">
-</div>
-
-<p>
-    임베디드 홈캠 펌웨어를 분석하고 시스템 구조와 실행 흐름을 파악한 프로젝트
-  </p>
-
-  <details>
-    <summary style="cursor:pointer; font-weight:bold;">
-      🔍 상세 보기
-    </summary>
-
-    <br>
-
-    <h4>요약</h4>
-    <ul>
-      <li>펌웨어 추출 및 정적/동적 분석을 통한 시스템 구조 분석</li>
-    </ul>
-
-    <h4>역할</h4>
-    <ul>
-      <li>총 8명 팀 프로젝트</li>
-      <li>파일 시스템 분석 및 QEMU 환경 구축</li>
-      <li>실행 파일 분석</li>
-    </ul>
-
-    <h4>성과</h4>
-    <ul>
-      <li>Bootloader → Kernel → RootFS 구조 분석</li>
-      <li>QEMU 기반 부팅 성공</li>
-      <li>프로세스 동작 흐름 파악</li>
-    </ul>
-
-    <h4>시기</h4>
-    <ul>
-      <li>2025.03 ~ 2025.07</li>
-    </ul>
-
-    <h4>Code / Report</h4>
-    <a href="https://github.com/yeojin-206/HomeCam-Firmware-Analysis.git" target="_blank">
-      GitHub
-    </a>
-
-    <h4>Used</h4>
-    <p>
-      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">Linux</span>
-      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">QEMU</span>
-      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">Binwalk</span>
-      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">Ghidra</span>
-      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">C</span>
-      <span style="background:#e0f2fe; padding:5px 10px; border-radius:8px;">flashrom</span>
-    </p>
-    <h4>세부 내용</h4>
-    <ul>
-      <li>flash 메모리에서 펌웨어 추출</li>
-      <li>binwalk 및 FMK 기반 분석</li>
-      <li>squashfs rootfs 재구성</li>
-      <li>QEMU MIPS 부팅</li>
-      <li>Ghidra 정적 분석</li>
-      <li>LD_PRELOAD 기반 후킹</li>
-    </ul>
-
-  </details>
-</div>
-
-<!-- 🔥 Big Integer -->
-<div class="project">
-<h3>Big Integer Library</h3>
-
-<img src="images/bigint.png" width="100%">
-
-<p>
-    큰 정수 연산 라이브러리를 구현하고 Diffie-Hellman 키 교환 시스템 구현한 프로젝트
-  </p>
-
-  <details>
-    <summary style="cursor:pointer; font-weight:bold;">
-      🔍 상세 보기
-    </summary>
-
-    <br>
-
-    <h4>요약</h4>
-    <ul>
-      <li>C 기반 큰 정수 연산 라이브러리 구현 및 성능 최적화</li>
-    </ul>
-
-    <h4>역할</h4>
-    <ul>
-      <li>총 3명 팀 프로젝트 (팀장)</li>
-      <li>연산 구현 및 구조 설계</li>
-      <li>Karatsuba 적용 및 성능 측정</li>
-    </ul>
-
-    <h4>성과</h4>
-    <ul>
-      <li>곱셈 성능 개선 확인</li>
-      <li>입력 크기별 성능 분석 수행</li>
-      <li>연산 정확성 검증</li>
-    </ul>
-
-    <h4>시기</h4>
-    <ul>
-      <li>2024.09 ~ 2024.11</li>
-    </ul>
-
-    <h4>Code</h4>
-    <a href="https://github.com/tjdbs57/2024_fall_BigInt.git" target="_blank">
-      GitHub
-    </a>
-
-   <h4>Used</h4>
-    <p>
-      <span style="background:#eee; padding:5px 10px; border-radius:8px;">C</span>
-      <span style="background:#eee; padding:5px 10px; border-radius:8px;">Valgrind</span>
-      <span style="background:#eee; padding:5px 10px; border-radius:8px;">Python</span>
-      <span style="background:#eee; padding:5px 10px; border-radius:8px;">GCC</span>
-    </p>
-
-    <h4>세부 내용</h4>
-    <ul>
-      <li>Arbitrary Precision 구조 설계</li>
-      <li>사칙연산 구현</li>
-      <li>Karatsuba 곱셈 구현</li>
-      <li>rdtsc 기반 성능 측정</li>
-      <li>모듈화 구조 설계</li>
-    </ul>
-
-  </details>
-</div>
-
-
+  <main class="page">
+    <h1>‘끈질긴 분석가’ 정서윤입니다.</h1>
+
+    <!-- Profile & Education -->
+    <section class="profile">
+      <div class="profile-photo">
+        <img src="images/profile.jpg" alt="정서윤 프로필 사진" />
+      </div>
+      <div>
+        <h3>Education</h3>
+        <p class="line"><span class="date">2022.03</span>국민대학교 정보보안암호수학과 입학</p>
+        <p class="line"><span class="date">2027.02</span>국민대학교 졸업 예정</p>
+        <div class="entry">
+          <ul>
+            <li>정보보안암호수학과 (주전공)</li>
+            <li>소프트웨어전공 (부전공)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Other activities -->
+    <h2>Other activities</h2>
+    <section class="cols">
+      <div>
+        <h3>Club</h3>
+
+        <div class="entry">
+          <p class="entry-title"><span class="date">2025.06 ~ 2025.08</span>국민대학교 네트워크보안동아리 Movisec</p>
+          <ul>
+            <li>Wireshark를 활용한 네트워크 패킷 분석 수행</li>
+            <li>DDoS 공격 상황에서 비정상 트래픽 패턴 식별</li>
+            <li>재전송 공격 환경에서 패킷 흐름 및 통신 이상 현상 분석</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <p class="entry-title"><span class="date">2024.03 ~ 2025.02</span>국민대학교 부채널분석동아리 PEPSI</p>
+          <ul>
+            <li>AES·ARIA 암호 알고리즘 대상 부채널 공격 실습 및 경진대회 문제 풀이 수행</li>
+            <li>ChipWhisperer 기반 전력 파형 분석과 DPA/CPA 공격을 C언어로 구현하여 비밀 키 복구 성공</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <p class="entry-title"><span class="date">2023.09 ~ 2024.12</span>국민대학교 최적화동아리 CO2</p>
+          <ul>
+            <li>LEA, AES, SHA, HIGHT 등 다양한 암호 알고리즘을 구현</li>
+            <li>연산 구조와 메모리 접근을 고려한 최적화를 수행</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <h3>Experience</h3>
+
+        <div class="entry">
+          <p class="entry-title"><span class="date">2025.03 ~ 2025.09</span>한국정보기술연구원 - 화이트햇스쿨</p>
+          <ul>
+            <li>웹, 네트워크, 시스템 해킹에 대한 이론 교육</li>
+            <li>임베디드 보안 관련 프로젝트 수행</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <p class="entry-title"><span class="date">2024.06 ~ 2024.08</span>NSHC - 현장실습 인턴</p>
+          <ol>
+            <li>부서: LLVM 연구소</li>
+            <li>업무 내용:
+              <ul>
+                <li>SMT solver를 활용하여 컴파일러 난독화 전후 코드의 의미적 동등성 검증을 수행하고 프로그램 변환 과정에서 동작이 동일하게 유지되는지 확인했습니다.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+
+        <h3 style="margin-top: 40px;">Certificate</h3>
+        <p class="line"><span class="date">2025.02</span>ACTFL - OPIc (IH)</p>
+        <p class="line"><span class="date">2026.09</span>한국산업인력공단 - 정보처리기사</p>
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- Tools & Skills -->
+    <h2>📝 Used Tool &amp; Skill</h2>
+    <h4>Tool</h4>
+    <div class="chips">
+      <code>Git</code><code>Github</code><code>Slack</code><code>Notion</code>
+    </div>
+    <h4>Language</h4>
+    <div class="chips">
+      <code>C/C++</code><code>Python</code>
+    </div>
+
+    <!-- Projects -->
+    <h2 style="margin-top: 64px;">Project</h2>
+    <hr style="margin: 0 0 8px;" />
+    <p class="gallery-title">주요 프로젝트</p>
+    <section class="gallery">
+      <a class="card" href="https://app.notion.com/p/Firmware-Analysis-3fe35ace9f088043a52debfdea34294e" target="_blank" rel="noopener">
+        <img class="card-cover" src="images/firmware.png" alt="Firmware Analysis" />
+        <div class="card-body">
+          <p class="card-name">Firmware Analysis</p>
+          <div class="tags">
+            <span class="tag">임베디드</span>
+            <span class="tag blue">정적/동적분석</span>
+            <span class="tag">보안 취약점</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="https://app.notion.com/p/Big-Integer-Library-32c35ace9f08817c9b59e653cdd23aec" target="_blank" rel="noopener">
+        <img class="card-cover" src="images/bigint.png" alt="Big Integer Library 구현" />
+        <div class="card-body">
+          <p class="card-name">Big Integer Library 구현</p>
+          <div class="tags">
+            <span class="tag red">개발</span>
+            <span class="tag purple">소프트웨어 테스팅</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="https://app.notion.com/p/Laser-Communication-System-32c35ace9f08811eb6adde5c63683982" target="_blank" rel="noopener">
+        <img class="card-cover" src="images/laser.jpg" alt="Laser Communication System" />
+        <div class="card-body">
+          <p class="card-name">Laser Communication System</p>
+          <div class="tags">
+            <span class="tag">임베디드</span>
+            <span class="tag green">시스템설계</span>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <footer>© 2026 정서윤</footer>
+  </main>
 </body>
 </html>
